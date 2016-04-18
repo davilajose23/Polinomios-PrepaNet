@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C3C818C1C912F1D006A214E /* Proyecto Polinomios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Proyecto Polinomios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C3C818C1C912F1D006A214E /* prueba pantallas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prueba pantallas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3C818F1C912F1D006A214E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C3C81911C912F1D006A214E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C3C81941C912F1D006A214E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		5C3C81831C912F1D006A214E = {
 			isa = PBXGroup;
 			children = (
-				5C3C818E1C912F1D006A214E /* Proyecto Polinomios */,
+				5C3C818E1C912F1D006A214E /* prueba pantallas */,
 				5C3C818D1C912F1D006A214E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		5C3C818D1C912F1D006A214E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C3C818C1C912F1D006A214E /* Proyecto Polinomios.app */,
+				5C3C818C1C912F1D006A214E /* prueba pantallas.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C3C818E1C912F1D006A214E /* Proyecto Polinomios */ = {
+		5C3C818E1C912F1D006A214E /* prueba pantallas */ = {
 			isa = PBXGroup;
 			children = (
 				5C3C818F1C912F1D006A214E /* AppDelegate.swift */,
@@ -61,16 +61,15 @@
 				5C3C81981C912F1D006A214E /* LaunchScreen.storyboard */,
 				5C3C819B1C912F1D006A214E /* Info.plist */,
 			);
-			name = "Proyecto Polinomios";
 			path = "prueba pantallas";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C3C818B1C912F1D006A214E /* Proyecto Polinomios */ = {
+		5C3C818B1C912F1D006A214E /* prueba pantallas */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "Proyecto Polinomios" */;
+			buildConfigurationList = 5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "prueba pantallas" */;
 			buildPhases = (
 				5C3C81881C912F1D006A214E /* Sources */,
 				5C3C81891C912F1D006A214E /* Frameworks */,
@@ -80,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = "Proyecto Polinomios";
+			name = "prueba pantallas";
 			productName = "prueba pantallas";
-			productReference = 5C3C818C1C912F1D006A214E /* Proyecto Polinomios.app */;
+			productReference = 5C3C818C1C912F1D006A214E /* prueba pantallas.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "Proyecto Polinomios" */;
+			buildConfigurationList = 5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "prueba pantallas" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C3C818B1C912F1D006A214E /* Proyecto Polinomios */,
+				5C3C818B1C912F1D006A214E /* prueba pantallas */,
 			);
 		};
 /* End PBXProject section */
@@ -250,8 +249,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "prueba pantallas/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.proyecto-polinomios";
-				PRODUCT_NAME = "Proyecto Polinomios";
+				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.prueba-pantallas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -261,15 +260,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "prueba pantallas/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.proyecto-polinomios";
-				PRODUCT_NAME = "Proyecto Polinomios";
+				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.prueba-pantallas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "Proyecto Polinomios" */ = {
+		5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "prueba pantallas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C3C819C1C912F1D006A214E /* Debug */,
@@ -278,14 +277,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "Proyecto Polinomios" */ = {
+		5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "prueba pantallas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C3C819F1C912F1D006A214E /* Debug */,
 				5C3C81A01C912F1D006A214E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
