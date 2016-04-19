@@ -20,6 +20,8 @@ class DefinirEcuacionViewController: UIViewController {
     @IBOutlet weak var outletA: UITextField!
     
     
+    
+    
     let kFilename = "/data.plist"
     
     func dataFilePath() -> String {
@@ -33,19 +35,77 @@ class DefinirEcuacionViewController: UIViewController {
         
     }
     
+    @IBAction func clickAleatorio(sender: AnyObject) {
+        
+        var aleatorio = Int(arc4random_uniform(100)) - 50
+        outletA.text = String(aleatorio)
+        
+        aleatorio = Int(arc4random_uniform(100)) - 50
+        outletB.text = String(aleatorio)
+        
+        aleatorio = Int(arc4random_uniform(100)) - 50
+        outletC.text = String(aleatorio)
+        
+        aleatorio = Int(arc4random_uniform(100)) - 50
+        outletD.text = String(aleatorio)
+        
+        
+    }
+    
+    
+    // Funcion cuando se da click en guardar
     
     @IBAction func clickGuardar(sender: AnyObject) {
         
         let array: NSMutableArray = []
         
         
+        // verifica que sea una ecuacion valida ( no este llena de ceros)
         
-        array.addObject(outletA.text!)
-        array.addObject(outletB.text!)
-        array.addObject(outletC.text!)
-        array.addObject(outletD.text!)
+        if outletA.text == "0" && outletB.text == "0" && outletC.text == "0" && outletD.text == "0" {
+            
+            // TODO: Agregar alerta
+            
+            
+        }else {
+            
+            //
+            if outletA.text == ""{
+                array.addObject("0")
+            }else {
+                array.addObject(outletA.text!)
+            }
+            
+            if outletB.text == ""{
+                array.addObject("0")
+            }else{
+                array.addObject(outletB.text!)
+            }
+            
+            
+            if outletC.text == ""{
+                array.addObject("0")
+            }else {
+                array.addObject(outletC.text!)
+            }
+            
+            if outletD.text == ""{
+                array.addObject("0")
+            }else{
+                array.addObject(outletD.text!)
+            }
+            
+            // guarda el archivo
+            array.writeToFile(dataFilePath(), atomically: true)
+            
+            
+            // regresa a la vista anterior
+            if let navController = self.navigationController {
+                navController.popViewControllerAnimated(true)
+            }
+            
+        }
         
-        array.writeToFile(dataFilePath(), atomically: true)
         
     }
     
