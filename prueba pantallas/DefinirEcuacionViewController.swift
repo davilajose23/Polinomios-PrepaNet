@@ -19,6 +19,8 @@ class DefinirEcuacionViewController: UIViewController {
     @IBOutlet weak var outletB: UITextField!
     @IBOutlet weak var outletA: UITextField!
     
+    @IBOutlet weak var outletLabelEcuacion: UILabel!
+   
     
     
     
@@ -52,6 +54,13 @@ class DefinirEcuacionViewController: UIViewController {
         
     }
     
+    @IBAction func clickLimpiarDatos(sender: AnyObject) {
+        
+        outletA.text = "0"
+        outletB.text = "0"
+        outletC.text = "1"
+        outletD.text = "0"
+    }
     
     // Funcion cuando se da click en guardar
     
@@ -125,7 +134,32 @@ class DefinirEcuacionViewController: UIViewController {
             outletC.text = array![2] as? String
             outletD.text = array![3] as? String
             
+           /*
+            var ecuac = ""
             
+            if outletA.text != "0" {
+                ecuac += "\(outletA.text!)x^3 "
+            }
+            
+            if outletB.text != "0" {
+                ecuac += "\(outletB.text!)x^2 "
+            }
+            
+            if outletC.text != "0" {
+                ecuac += "\(outletC.text!)x "
+            }
+            
+            if outletD.text != "0" {
+                ecuac += "\(outletD.text!) "
+            }
+            
+            outletLabelEcuacion.text  = (ecuac + "= 0")
+            */
+        }else{
+            outletA.text = "0"
+            outletB.text = "0"
+            outletC.text = "1"
+            outletD.text = "0"
         }
         
      

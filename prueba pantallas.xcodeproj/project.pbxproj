@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C1F564F1CC5B6510005D5AA /* Polinomio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F564E1CC5B6510005D5AA /* Polinomio.swift */; };
 		5C3C81901C912F1D006A214E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C818F1C912F1D006A214E /* AppDelegate.swift */; };
 		5C3C81921C912F1D006A214E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C81911C912F1D006A214E /* ViewController.swift */; };
 		5C3C81951C912F1D006A214E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C81931C912F1D006A214E /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C1F564E1CC5B6510005D5AA /* Polinomio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polinomio.swift; sourceTree = "<group>"; };
 		5C3C818C1C912F1D006A214E /* prueba pantallas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prueba pantallas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3C818F1C912F1D006A214E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C3C81911C912F1D006A214E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				5C3C818F1C912F1D006A214E /* AppDelegate.swift */,
 				5C3C81911C912F1D006A214E /* ViewController.swift */,
 				5C3C81931C912F1D006A214E /* Main.storyboard */,
+				5C1F564E1CC5B6510005D5AA /* Polinomio.swift */,
 				FB9F8DC71CC555D6006FA130 /* DefinirEcuacionViewController.swift */,
 				FB9F8DC51CC55599006FA130 /* Property List.plist */,
 				5C3C81961C912F1D006A214E /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C1F564F1CC5B6510005D5AA /* Polinomio.swift in Sources */,
 				FB9F8DC81CC555D6006FA130 /* DefinirEcuacionViewController.swift in Sources */,
 				5C3C81921C912F1D006A214E /* ViewController.swift in Sources */,
 				5C3C81901C912F1D006A214E /* AppDelegate.swift in Sources */,

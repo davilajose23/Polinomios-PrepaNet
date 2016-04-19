@@ -1,14 +1,25 @@
-import Foundation
-//															Clase encargada de representar a un polinomio de hasta 
-//																tercer grado.
-//															El polinomio tendrá la siguiente forma:
-//																ax^3 + bx^2 + cx + d
-class Polinomio
-{
-    //------------------------------------------------------------------------------------------------------------------
-	//														PROPIEDADES DE INSTANCIA
+//
+//  Polinomio.swift
+//  prueba pantallas
+//
+//  Created by Jose Fernando DÃ¡vila Orta on 18/04/16.
+//  Copyright Â© 2016 JoseFernandoDavila. All rights reserved.
+//
 
-	//														Valores de 'a' hasta 'd'
+import UIKit
+import Foundation
+
+
+//	Clase encargada de representar a un polinomio de hasta tercer grado.
+//	El polinomio tendrÂ· la siguiente forma: ax^3 + bx^2 + cx + d
+
+class Polinomio:NSObject
+{
+    //-----------------------------------------------------------------------------------------------------------
+    //							PROPIEDADES DE INSTANCIA
+    //							Valores de 'a' hasta 'd'
+    
+    
     private var dblA : Double
     private var dblB : Double
     private var dblC : Double
@@ -23,12 +34,13 @@ class Polinomio
         self.dblC = dblC
         self.dblD = dblD
     }
-
-    //------------------------------------------------------------------------------------------------------------------
-	//														PROPIEDADES CALCULADAS
-
-	//														El grado del polinomio.
-	//														Es útil calcularlo para evitar procesos innecesarios.
+    
+    //------------------------------------------------------------------------------------------------------------
+    //							PROPIEDADES CALCULADAS
+    
+    //						    El grado del polinomio.
+    //					Es Ãºtil calcularlo para evitar procesos innecesarios.
+    
     lazy var intGrado : Int = {
         if (self.dblA != 0) {return 3}
         if (self.dblB != 0) {return 2}
@@ -36,8 +48,8 @@ class Polinomio
         return 0
     }()
     
-	//														Puntos de inflexion. Son los puntos en los que la segunda
-	//															derivada es igual a cero.
+    //							Puntos de inflexion. Son los puntos en los que la segunda
+    //						derivada es igual a cero.
     lazy var arrdblPuntosInflexion : [Double] = {
         if (self.intGrado < 3) {return []}
         
@@ -47,27 +59,27 @@ class Polinomio
         return [dblPuntoDeInflexion]
     }()
     
-	//														Los ceros de la funcion.
-	//														Hay cuatro posibles casos:
-	//															- El grado es 0: se regresa un conjunto vacío
-	//															- El grado es 1: se obtiene por medio de la ecuacion
-	//																-(d/c)
-	//															- El grado es 2: se utiliza la fórmula general
-	//																cuadrática
-	//															- El grado es 3: la función se lcasifica en uno de tres
-	//                                                              casos y se resuelve acorde
-	//                                                              Caso 1: No tiene máximos ni mínimos.
-	//                                                              Caso 2: Máximo y mínimo son negativos o positivos.
-	//                                                              Caso 3: Máximo y mínimo son uno negativo y otro no.
+    //														Los ceros de la funcion.
+    //														Hay cuatro posibles casos:
+    //															- El grado es 0: se regresa un conjunto vacÃŒo
+    //															- El grado es 1: se obtiene por medio de la ecuacion
+    //																-(d/c)
+    //															- El grado es 2: se utiliza la fÃ›rmula general
+    //																cuadrÂ·tica
+    //															- El grado es 3: la funciÃ›n se lcasifica en uno de tres
+    //                                                              casos y se resuelve acorde
+    //                                                              Caso 1: No tiene mÂ·ximos ni mÃŒnimos.
+    //                                                              Caso 2: MÂ·ximo y mÃŒnimo son negativos o positivos.
+    //                                                              Caso 3: MÂ·ximo y mÃŒnimo son uno negativo y otro no.
     lazy var arrdblCeros : [Double] = {
         if (self.intGrado == 0){
-			return []
-		}
-		else if (self.intGrado == 1)
-		{
-			return [-self.dblD / self.dblC]
-		}
-		else if (self.intGrado == 2)
+            return []
+        }
+        else if (self.intGrado == 1)
+        {
+            return [-self.dblD / self.dblC]
+        }
+        else if (self.intGrado == 2)
         {
             var dblRootOf : Double = pow(self.dblC,2) - 4 * self.dblB * self.dblD
             if (dblRootOf < 0) {return []}
@@ -77,62 +89,62 @@ class Polinomio
             
             return [dblRootPositive, dblRootNegative]
         }
-        else 
-		{
-			//                                              Grado 3
-			
-			var intCaso : Int = 0
-			if (self.dblMaximo == nil) {intCaso = 1}
-			else if (self.dblCalcular(self.dblMaximo!) == 0 || self.dblCalcular(self.dblMinimo!) == 0 ||
-			        self.dblCalcular(self.dblMaximo!) / self.dblCalcular(self.dblMinimo!) < 0) {intCaso = 3}
-			else {intCaso = 2}
-			
-			if (intCaso == 1)
-			{
-			    return [self.dblBusquedaPendiente(self.arrdblPuntosInflexion[0], dblError: 0.000001)]
-			}
-			else if (intCaso == 2)
-			{
-			    if (self.dblCalcular(self.dblMaximo!) < 0)
-			    {
-			        if (self.dblMaximo! > self.dblMinimo!)
-			        {
-			            return [self.dblBusquedaPendiente(self.dblMinimo! - 1, dblError: 0.000001)]
-			        }
-			        return [self.dblBusquedaPendiente(self.dblMinimo! + 1, dblError: 0.000001)]
-			    }
-			    if (self.dblMaximo! > self.dblMinimo!)
-		        {
-		            return [self.dblBusquedaPendiente(self.dblMaximo! + 1, dblError: 0.000001)]
-		        }
-			    return [self.dblBusquedaPendiente(self.dblMaximo! - 1, dblError: 0.000001)]
-			}
-			else
-			{
-			    var arrdblCeros : [Double] = []
-			    if (self.dblMaximo! < self.dblMinimo!)
-			    {
-			        arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo! - 1, dblError: 0.000001))
-			        arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo! + 1, dblError: 0.000001))
-			    }
-			    else
-			    {
-			        arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo! + 1, dblError: 0.000001))
-			        arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo! - 1, dblError: 0.000001))
-			    }
-			    
-			    arrdblCeros.append(self.dblBusquedaBinaria(self.dblMinimo!, dblMax: self.dblMaximo!, dblError: 0.000001))
-			    
-			    return arrdblCeros
-			}
-		}
+        else
+        {
+            //                                              Grado 3
+            
+            var intCaso : Int = 0
+            if (self.dblMaximo == nil) {intCaso = 1}
+            else if (self.dblCalcular(self.dblMaximo!) == 0 || self.dblCalcular(self.dblMinimo!) == 0 ||
+                self.dblCalcular(self.dblMaximo!) / self.dblCalcular(self.dblMinimo!) < 0) {intCaso = 3}
+            else {intCaso = 2}
+            
+            if (intCaso == 1)
+            {
+                return [self.dblBusquedaPendiente(self.arrdblPuntosInflexion[0], dblError: 0.000001)]
+            }
+            else if (intCaso == 2)
+            {
+                if (self.dblCalcular(self.dblMaximo!) < 0)
+                {
+                    if (self.dblMaximo! > self.dblMinimo!)
+                    {
+                        return [self.dblBusquedaPendiente(self.dblMinimo! - 1, dblError: 0.000001)]
+                    }
+                    return [self.dblBusquedaPendiente(self.dblMinimo! + 1, dblError: 0.000001)]
+                }
+                if (self.dblMaximo! > self.dblMinimo!)
+                {
+                    return [self.dblBusquedaPendiente(self.dblMaximo! + 1, dblError: 0.000001)]
+                }
+                return [self.dblBusquedaPendiente(self.dblMaximo! - 1, dblError: 0.000001)]
+            }
+            else
+            {
+                var arrdblCeros : [Double] = []
+                if (self.dblMaximo! < self.dblMinimo!)
+                {
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo! - 1, dblError: 0.000001))
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo! + 1, dblError: 0.000001))
+                }
+                else
+                {
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo! + 1, dblError: 0.000001))
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo! - 1, dblError: 0.000001))
+                }
+                
+                arrdblCeros.append(self.dblBusquedaBinaria(self.dblMinimo!, dblMax: self.dblMaximo!, dblError: 0.000001))
+                
+                return arrdblCeros
+            }
+        }
     }()
     
-	//														Valor máximo de la función.
-	//														No necesariamente es cuando la función vale más, sino cuando
-	//															se encuentra que la derivada es igual a cero, y la
-	//															segunda derivada es negativa.
-    lazy var dblMaximo : Double? = 
+    //														Valor mÂ·ximo de la funciÃ›n.
+    //														No necesariamente es cuando la funciÃ›n vale mÂ·s, sino cuando
+    //															se encuentra que la derivada es igual a cero, y la
+    //															segunda derivada es negativa.
+    lazy var dblMaximo : Double? =
     {
         if (self.intGrado < 2) {return nil}
         
@@ -147,11 +159,11 @@ class Polinomio
         return nil
     }()
     
-	//														Valor minimo de la función.
-	//														No necesariamente es cuando la función vale menos, sino que
-	//															se encuentra que la derivada es igual a cero, y la
-	//															segunda derivada es positiva.
-    lazy var dblMinimo : Double? = 
+    //														Valor minimo de la funciÃ›n.
+    //														No necesariamente es cuando la funciÃ›n vale menos, sino que
+    //															se encuentra que la derivada es igual a cero, y la
+    //															segunda derivada es positiva.
+    lazy var dblMinimo : Double? =
     {
         if (self.intGrado < 2) {return nil}
         
@@ -167,16 +179,16 @@ class Polinomio
     }()
     
     //------------------------------------------------------------------------------------------------------------------
-	//														Métodos de consulta.
-	
-    //														Evalúa la función en cierto valor de 'x'
+    //														MÃˆtodos de consulta.
+    
+    //														EvalË™a la funciÃ›n en cierto valor de 'x'
     func dblCalcular(dblX : Double) -> Double
     {
         return self.dblA * pow(dblX,3) + self.dblB * pow(dblX,2) + self.dblC * dblX + self.dblD;
     }
     
-	//														Determina si un polinomio de grado 1 es factor del polinomio
-	//															con la condición de ser de grado 3.
+    //														Determina si un polinomio de grado 1 es factor del polinomio
+    //															con la condiciÃ›n de ser de grado 3.
     private func boolEsFactor(poliFactor: Polinomio) -> Bool
     {
         if (poliFactor.intGrado != 1) {return false}
@@ -187,14 +199,14 @@ class Polinomio
         return (self.dblD == fe * self.dblC - fe * fe * self.dblB + fe * fe * fe * self.dblA)
     }
     
-	//														Realiza una división de un polinomio de grado 3 entre un
-	//															polinomio de grado 1.
-	//														Si los polinomios no son válidos, regresa nulo. Lo mismo
-	//															ocurre si el polinomio no es divisible entre el
-	//															denominador.
+    //														Realiza una divisiÃ›n de un polinomio de grado 3 entre un
+    //															polinomio de grado 1.
+    //														Si los polinomios no son vÂ·lidos, regresa nulo. Lo mismo
+    //															ocurre si el polinomio no es divisible entre el
+    //															denominador.
     private func poliDivide(poliDenominador: Polinomio) -> Polinomio?
     {
-		if (!self.boolEsFactor(poliDenominador)) {return nil}
+        if (!self.boolEsFactor(poliDenominador)) {return nil}
         
         let b = self.dblA / poliDenominador.dblC
         let c = self.dblB / poliDenominador.dblC - poliDenominador.dblD * b / poliDenominador.dblC
