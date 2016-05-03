@@ -1,29 +1,29 @@
 //
-//  Polinomio.swift
+//  Graficar.swift
 //  prueba pantallas
 //
 //  Created by Jose Fernando Dávila Orta on 18/04/16.
 //  Copyright © 2016 JoseFernandoDavila. All rights reserved.
 //
 
-import UIKit
+
+
+
 import Foundation
-
-
-//	Clase encargada de representar a un polinomio de hasta tercer grado.
-//	El polinomio tendr· la siguiente forma: ax^3 + bx^2 + cx + d
-
-class Polinomio:NSObject
+//															Clase encargada de representar a un polinomio de hasta
+//																tercer grado.
+//															El polinomio tendr· la siguiente forma:
+//																ax^3 + bx^2 + cx + d
+class Polinomio
 {
-    //-----------------------------------------------------------------------------------------------------------
-    //							PROPIEDADES DE INSTANCIA
-    //							Valores de 'a' hasta 'd'
+    //------------------------------------------------------------------------------------------------------------------
+    //														PROPIEDADES DE INSTANCIA
     
-    
-    private var dblA : Double
-    private var dblB : Double
-    private var dblC : Double
-    private var dblD : Double
+    //														Valores de 'a' hasta 'd'
+    var dblA : Double
+    var dblB : Double
+    var dblC : Double
+    var dblD : Double
     
     //  CONSTRUCTOR
     
@@ -35,29 +35,28 @@ class Polinomio:NSObject
         self.dblD = dblD
     }
     
-    //------------------------------------------------------------------------------------------------------------
-    //							PROPIEDADES CALCULADAS
+    //------------------------------------------------------------------------------------------------------------------
+    //														PROPIEDADES CALCULADAS
     
-    //						    El grado del polinomio.
-    //					Es útil calcularlo para evitar procesos innecesarios.
-    
-    lazy var intGrado : Int = {
+    //														El grado del polinomio.
+    //														Es ˙til calcularlo para evitar procesos innecesarios.
+    func intGrado() -> Int {
         if (self.dblA != 0) {return 3}
         if (self.dblB != 0) {return 2}
         if (self.dblC != 0) {return 1}
         return 0
-    }()
+    }
     
-    //							Puntos de inflexion. Son los puntos en los que la segunda
-    //						derivada es igual a cero.
-    lazy var arrdblPuntosInflexion : [Double] = {
-        if (self.intGrado < 3) {return []}
+    //														Puntos de inflexion. Son los puntos en los que la segunda
+    //															derivada es igual a cero.
+    func arrdblPuntosInflexion() -> [Double] {
+        if (self.intGrado() < 3) {return []}
         
         var dblPuntoDeInflexion : Double = -2 * self.dblB
         dblPuntoDeInflexion /= 6 * self.dblA
         
         return [dblPuntoDeInflexion]
-    }()
+    }
     
     //														Los ceros de la funcion.
     //														Hay cuatro posibles casos:
@@ -71,17 +70,17 @@ class Polinomio:NSObject
     //                                                              Caso 1: No tiene m·ximos ni mÌnimos.
     //                                                              Caso 2: M·ximo y mÌnimo son negativos o positivos.
     //                                                              Caso 3: M·ximo y mÌnimo son uno negativo y otro no.
-    lazy var arrdblCeros : [Double] = {
-        if (self.intGrado == 0){
+    func arrdblCeros() -> [Double] {
+        if (self.intGrado() == 0){
             return []
         }
-        else if (self.intGrado == 1)
+        else if (self.intGrado() == 1)
         {
             return [-self.dblD / self.dblC]
         }
-        else if (self.intGrado == 2)
+        else if (self.intGrado() == 2)
         {
-            var dblRootOf : Double = pow(self.dblC,2) - 4 * self.dblB * self.dblD
+            let dblRootOf : Double = pow(self.dblC,2) - 4 * self.dblB * self.dblD
             if (dblRootOf < 0) {return []}
             
             let dblRootPositive = (-self.dblC + sqrt(dblRootOf)) / (2 * self.dblB)
@@ -94,89 +93,89 @@ class Polinomio:NSObject
             //                                              Grado 3
             
             var intCaso : Int = 0
-            if (self.dblMaximo == nil) {intCaso = 1}
-            else if (self.dblCalcular(self.dblMaximo!) == 0 || self.dblCalcular(self.dblMinimo!) == 0 ||
-                self.dblCalcular(self.dblMaximo!) / self.dblCalcular(self.dblMinimo!) < 0) {intCaso = 3}
+            if (self.dblMaximo() == nil) {intCaso = 1}
+            else if (self.dblCalcular(self.dblMaximo()!) == 0 || self.dblCalcular(self.dblMinimo()!) == 0 ||
+                self.dblCalcular(self.dblMaximo()!) / self.dblCalcular(self.dblMinimo()!) < 0) {intCaso = 3}
             else {intCaso = 2}
             
             if (intCaso == 1)
             {
-                return [self.dblBusquedaPendiente(self.arrdblPuntosInflexion[0], dblError: 0.000001)]
+                return [self.dblBusquedaPendiente(self.arrdblPuntosInflexion()[0], dblError: 0.000001)]
             }
             else if (intCaso == 2)
             {
-                if (self.dblCalcular(self.dblMaximo!) < 0)
+                if (self.dblCalcular(self.dblMaximo()!) < 0)
                 {
-                    if (self.dblMaximo! > self.dblMinimo!)
+                    if (self.dblMaximo()! > self.dblMinimo()!)
                     {
-                        return [self.dblBusquedaPendiente(self.dblMinimo! - 1, dblError: 0.000001)]
+                        return [self.dblBusquedaPendiente(self.dblMinimo()! - 1, dblError: 0.000001)]
                     }
-                    return [self.dblBusquedaPendiente(self.dblMinimo! + 1, dblError: 0.000001)]
+                    return [self.dblBusquedaPendiente(self.dblMinimo()! + 1, dblError: 0.000001)]
                 }
-                if (self.dblMaximo! > self.dblMinimo!)
+                if (self.dblMaximo()! > self.dblMinimo()!)
                 {
-                    return [self.dblBusquedaPendiente(self.dblMaximo! + 1, dblError: 0.000001)]
+                    return [self.dblBusquedaPendiente(self.dblMaximo()! + 1, dblError: 0.000001)]
                 }
-                return [self.dblBusquedaPendiente(self.dblMaximo! - 1, dblError: 0.000001)]
+                return [self.dblBusquedaPendiente(self.dblMaximo()! - 1, dblError: 0.000001)]
             }
             else
             {
                 var arrdblCeros : [Double] = []
-                if (self.dblMaximo! < self.dblMinimo!)
+                if (self.dblMaximo()! < self.dblMinimo()!)
                 {
-                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo! - 1, dblError: 0.000001))
-                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo! + 1, dblError: 0.000001))
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo()! - 1, dblError: 0.000001))
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo()! + 1, dblError: 0.000001))
                 }
                 else
                 {
-                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo! + 1, dblError: 0.000001))
-                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo! - 1, dblError: 0.000001))
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMaximo()! + 1, dblError: 0.000001))
+                    arrdblCeros.append(self.dblBusquedaPendiente(self.dblMinimo()! - 1, dblError: 0.000001))
                 }
                 
-                arrdblCeros.append(self.dblBusquedaBinaria(self.dblMinimo!, dblMax: self.dblMaximo!, dblError: 0.000001))
+                arrdblCeros.append(self.dblBusquedaBinaria(self.dblMinimo()!, dblMax: self.dblMaximo()!, dblError: 0.000001))
                 
                 return arrdblCeros
             }
         }
-    }()
+    }
     
     //														Valor m·ximo de la funciÛn.
     //														No necesariamente es cuando la funciÛn vale m·s, sino cuando
     //															se encuentra que la derivada es igual a cero, y la
     //															segunda derivada es negativa.
-    lazy var dblMaximo : Double? =
+    func dblMaximo() -> Double?
     {
-        if (self.intGrado < 2) {return nil}
+        if (self.intGrado() < 2) {return nil}
         
         let poliPendiente = Polinomio(dblA: 0, dblB: self.dblA * 3, dblC: self.dblB * 2, dblD: self.dblC)
         let poliAceleracion = Polinomio(dblA: 0, dblB: 0, dblC: self.dblA * 6, dblD: self.dblB * 2)
         
-        for dblMaxMin in poliPendiente.arrdblCeros
+        for dblMaxMin in poliPendiente.arrdblCeros()
         {
             if (poliAceleracion.dblCalcular(dblMaxMin) < 0) {return dblMaxMin}
         }
         
         return nil
-    }()
+    }
     
     //														Valor minimo de la funciÛn.
     //														No necesariamente es cuando la funciÛn vale menos, sino que
     //															se encuentra que la derivada es igual a cero, y la
     //															segunda derivada es positiva.
-    lazy var dblMinimo : Double? =
+    func dblMinimo() -> Double?
     {
-        if (self.intGrado < 2) {return nil}
+        if (self.intGrado() < 2) {return nil}
         
         let poliPendiente = Polinomio(dblA: 0, dblB: self.dblA * 3, dblC: self.dblB * 2, dblD: self.dblC)
         let poliAceleracion = Polinomio(dblA: 0, dblB: 0, dblC: self.dblA * 6, dblD: self.dblB * 2)
         
-        for dblMaxMin in poliPendiente.arrdblCeros
+        for dblMaxMin in poliPendiente.arrdblCeros()
         {
             if (poliAceleracion.dblCalcular(dblMaxMin) > 0) {return dblMaxMin}
         }
         
         return nil
-    }()
+    }
     
     //------------------------------------------------------------------------------------------------------------------
     //														MÈtodos de consulta.
@@ -191,8 +190,8 @@ class Polinomio:NSObject
     //															con la condiciÛn de ser de grado 3.
     private func boolEsFactor(poliFactor: Polinomio) -> Bool
     {
-        if (poliFactor.intGrado != 1) {return false}
-        if (self.intGrado != 3) {return false}
+        if (poliFactor.intGrado() != 1) {return false}
+        if (self.intGrado() != 3) {return false}
         
         let fe = poliFactor.dblD / poliFactor.dblC
         
@@ -234,7 +233,7 @@ class Polinomio:NSObject
             else {dblMx = dblCero}
         }
         
-        return dblCero
+        return Double(round(10000*dblCero)/10000)
     }
     
     private func dblBusquedaPendiente(dblX: Double, dblError: Double) -> Double
@@ -247,6 +246,6 @@ class Polinomio:NSObject
             dblActual += -self.dblCalcular(dblActual) / poliDerivada.dblCalcular(dblActual)
         }
         
-        return dblActual
+        return Double(round(10000*dblActual)/10000)
     }
 }

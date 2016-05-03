@@ -20,6 +20,8 @@ class Graficar: UIViewController {
     @IBOutlet weak var outletPuntoInflexion: UITextField!
     
     
+    @IBOutlet weak var outletPlanoCartesiano: PlanoCartesiano!
+    
     func dataFilePath() -> String {
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -74,17 +76,42 @@ class Graficar: UIViewController {
             poli = Polinomio(dblA: 0, dblB: 2, dblC: 1, dblD: 0)
         }
         
+        // dibuja la grafica
         
-         if let maxi = poli.dblMaximo {
+        outletPlanoCartesiano.poli = poli
+        
+        outletPlanoCartesiano.setNeedsDisplay()
+        
+        
+        
+        if let maxi = poli.dblMaximo(){
             
             outletMaximo.text = String(format: "%.5f",maxi)
         }
         
-        if let min = poli.dblMinimo {
+        if let min = poli.dblMinimo(){
             
             outletMinimo.text = String(format: "%.5f",min)
         }
         //outletMaximo.text = String (maxi) + "si"
+        
+        
+        
+        let infl = poli.arrdblPuntosInflexion()
+            
+        var puntosInf = ""
+            
+        for var i in infl {
+                
+            puntosInf += String(format: "%.3f ",i)
+            
+        }
+            
+        outletPuntoInflexion.text = puntosInf
+        
+            
+            
+        
 
         
     }

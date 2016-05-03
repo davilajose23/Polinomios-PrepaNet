@@ -95,7 +95,7 @@
                                             <segue destination="g7g-SU-rIr" kind="show" id="e7n-H0-Vxk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Fsg-V7-0F5" style="IBUITableViewCellStyleDefault" id="vFw-e1-Sse">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Fsg-V7-0F5" style="IBUITableViewCellStyleDefault" id="vFw-e1-Sse">
                                         <rect key="frame" x="0.0" y="152" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vFw-e1-Sse" id="vOS-lb-4i8">
@@ -399,18 +399,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-V9-5yf">
-                                <rect key="frame" x="0.0" y="64" width="414" height="262"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grafica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9s-U0-m6E">
-                                        <rect key="frame" x="179" y="120" width="56" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.83916266025641029" green="0.83916266025641029" blue="0.83916266025641029" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Máximo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08A-wC-h7a">
                                 <rect key="frame" x="32" y="354" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -447,6 +435,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-V9-5yf" customClass="PlanoCartesiano" customModule="prueba_pantallas" customModuleProvider="target">
+                                <rect key="frame" x="45" y="64" width="324" height="235"/>
+                                <color key="backgroundColor" red="0.83916266025641029" green="0.83916266025641029" blue="0.83916266025641029" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -454,6 +446,7 @@
                     <connections>
                         <outlet property="outletMaximo" destination="3dj-ik-pIe" id="VHm-K8-7VV"/>
                         <outlet property="outletMinimo" destination="Oyu-ia-5OK" id="Yty-P7-yH8"/>
+                        <outlet property="outletPlanoCartesiano" destination="GtS-V9-5yf" id="ohm-M5-og2"/>
                         <outlet property="outletPuntoInflexion" destination="QHq-W6-mu3" id="8UJ-QL-Urc"/>
                     </connections>
                 </viewController>
@@ -621,6 +614,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jaX-4Z-Zb6"/>
+        <segue reference="SSh-HJ-gRl"/>
     </inferredMetricsTieBreakers>
 </document>
