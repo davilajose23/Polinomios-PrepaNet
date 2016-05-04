@@ -134,6 +134,12 @@ class DefinirEcuacionViewController: UIViewController {
         
         self.title = "Polinomio"
         
+        cargaDatos()
+        
+     
+    }
+
+    func cargaDatos(){
         let filePath: String = self.dataFilePath()
         
         if NSFileManager.defaultManager().fileExistsAtPath(filePath){
@@ -143,39 +149,22 @@ class DefinirEcuacionViewController: UIViewController {
             outletB.text = array![1] as? String
             outletC.text = array![2] as? String
             outletD.text = array![3] as? String
-            
-           /*
-            var ecuac = ""
-            
-            if outletA.text != "0" {
-                ecuac += "\(outletA.text!)x^3 "
-            }
-            
-            if outletB.text != "0" {
-                ecuac += "\(outletB.text!)x^2 "
-            }
-            
-            if outletC.text != "0" {
-                ecuac += "\(outletC.text!)x "
-            }
-            
-            if outletD.text != "0" {
-                ecuac += "\(outletD.text!) "
-            }
-            
-            outletLabelEcuacion.text  = (ecuac + "= 0")
-            */
+           
         }else{
             outletA.text = "0"
             outletB.text = "0"
             outletC.text = "1"
             outletD.text = "0"
         }
-        
-     
-    }
 
+        
+        
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        cargaDatos()
+    }
     
     @IBAction func quitaTeclado(sender: UITapGestureRecognizer) {
         

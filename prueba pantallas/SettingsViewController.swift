@@ -10,21 +10,58 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var outletSwitch: UISwitch!
+    
+    @IBOutlet weak var outletColores: UISegmentedControl!
+    
+    
+    @IBOutlet weak var outletSlider: UISlider!
+    @IBOutlet weak var outletIntentos: UITextField!
+    @IBOutlet weak var outletGrid: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func sliderChanged(sender: AnyObject) {
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func clickAleatorio(sender: UISwitch) {
+        
+        if outletSwitch.on {
+            
+            
+        }else{
+            
+            
+        }
+        
     }
     
     func cargaSettings(){
         
         
         let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let colorGrafica = String(defaults.valueForKey("settingsColorGrafica"))
+        
+        if colorGrafica == "0" {
+            outletSwitch.on = true
+            
+        }else {
+            outletSwitch.on = false
+            outletColores.selectedSegmentIndex = 0
+            
+        }
+        
         
         
         

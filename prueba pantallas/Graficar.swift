@@ -73,7 +73,7 @@ class Graficar: UIViewController {
             outletC.text = "1"
             outletD.text = "0" */
             
-            poli = Polinomio(dblA: 0, dblB: 2, dblC: 1, dblD: 0)
+            poli = Polinomio(dblA: 0, dblB: 0, dblC: 1, dblD: 0)
         }
         
         // dibuja la grafica

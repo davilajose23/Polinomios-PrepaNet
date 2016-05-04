@@ -35,7 +35,7 @@ class ExamenTeorico: UIViewController {
     @IBOutlet weak var outletImgPuntoInflexion: UIImageView!
     
     var intentos = 0
-    var poli = Polinomio(dblA: 0, dblB: 2, dblC: 1, dblD: 0)
+    var poli = Polinomio(dblA: 0, dblB: 0, dblC: 1, dblD: 0)
     var maximo:String = ""
     var minimo:String = ""
     var puntoInf:String = ""
@@ -62,7 +62,12 @@ class ExamenTeorico: UIViewController {
             outletImgMinimo.hidden = false
             
             //Verificar si esta bien Máximo
-            if Double(outletMaximo.text!) == Double(self.maximo) {
+            var strRespuestaMaximo : String = ""
+            if (outletMaximo.text != "")
+            {
+                strRespuestaMaximo = String(format: "%.2f", Double(outletMaximo.text!)!)
+            }
+            if strRespuestaMaximo == self.maximo {
                 
                 outletImgMaximo.image = imgBien
                 
@@ -70,9 +75,13 @@ class ExamenTeorico: UIViewController {
                 outletImgMaximo.image = imgMal
             }
             
-            
             // verifica si esta bien Minimo
-            if Double(outletMinimo.text!) == Double(self.minimo) {
+            var strRespuestaMinimo : String = ""
+            if (outletMinimo.text != "")
+            {
+                strRespuestaMinimo = String(format: "%.2f", Double(outletMinimo.text!)!)
+            }
+            if strRespuestaMinimo == self.minimo {
                 
                 outletImgMinimo.image = imgBien
                 
@@ -80,12 +89,15 @@ class ExamenTeorico: UIViewController {
                 outletImgMinimo.image = imgMal
             }
             
-            
             // verifica si esta bien punto de infl
-            if Double(outletPuntoInflexion.text!) == Double(self.puntoInf) {
+            var strRespuestaPI : String = ""
+            if (outletPuntoInflexion.text != "")
+            {
+                strRespuestaPI = String(format: "%.2f", Double(outletPuntoInflexion.text!)!)
+            }
+            if strRespuestaPI == self.puntoInf {
                 
                 outletImgPuntoInflexion.image = imgBien
-                
             }else{
                 outletImgPuntoInflexion.image = imgMal
             }
@@ -155,10 +167,37 @@ class ExamenTeorico: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        cargaDatos()
+        
+        if poli.dblMaximo() != nil{
+            
+            self.maximo = String(format: "%.2f", poli.dblMaximo()!)
+        }
+        if poli.dblMinimo() != nil {
+            
+            self.minimo = String(format: "%.2f", poli.dblMinimo()! )
+        }
+        
+        if poli.arrdblPuntosInflexion().count != 0 {
+            
+            self.puntoInf =  String(format: "%.2f",poli.arrdblPuntosInflexion()[0])
+        }
+        
+        outletImgPuntoInflexion.hidden = true
+        outletImgMaximo.hidden = true
+        outletImgMinimo.hidden = true
+        
+        outletIntentos.text = "\(intentos) de 5 Intentos"
+        
+    }
+    
+    
+    
+    func cargaDatos(){
         let filePath: String = self.dataFilePath()
         
         
-
+        
         if NSFileManager.defaultManager().fileExistsAtPath(filePath){
             
             let array = NSMutableArray(contentsOfFile: filePath)
@@ -175,7 +214,7 @@ class ExamenTeorico: UIViewController {
             outletC.text = "\(C)"
             outletD.text = "\(D)"
             
-             poli = Polinomio(dblA: A , dblB: B, dblC: C, dblD: D)
+            poli = Polinomio(dblA: A , dblB: B, dblC: C, dblD: D)
             
         }else{
             
@@ -185,38 +224,15 @@ class ExamenTeorico: UIViewController {
             outletD.text = "0"
             
         }
+
         
+    }
+    
+    
+    
+    override func viewWillAppear(animated: Bool) {
         
-        if let maxi = poli.dblMaximo(){
-            
-            self.maximo = "\(maxi)"
-        }
-        if let mini = poli.dblMinimo(){
-            
-            self.minimo = "\(mini)"
-        }
-        
-        
-        let infl = poli.arrdblPuntosInflexion()
-        var puntosInf = ""
-        for var i in infl {
-            
-            if i == 0 {
-                puntosInf += "0"
-            }else{
-                puntosInf += String(format: "%.5f ",i)
-            }
-            
-        }
-        
-        self.puntoInf = puntosInf
-        
-        outletImgPuntoInflexion.hidden = true
-        outletImgMaximo.hidden = true
-        outletImgMinimo.hidden = true
-        
-        outletIntentos.text = "\(intentos) de 5 Intentos"
-        
+        cargaDatos()
     }
     
     @IBAction func quitaTeclado(sender: UITapGestureRecognizer) {

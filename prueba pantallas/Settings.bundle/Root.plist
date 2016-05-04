@@ -31,11 +31,11 @@
 			</array>
 			<key>Values</key>
 			<array>
-				<string>aleatorio</string>
-				<string>azul</string>
-				<string>verde</string>
-				<string>rojo</string>
-				<string>naranja</string>
+				<string>0</string>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>4</string>
 			</array>
 		</dict>
 		<dict>
