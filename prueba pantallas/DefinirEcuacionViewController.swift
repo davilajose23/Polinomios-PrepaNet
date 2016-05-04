@@ -71,11 +71,19 @@ class DefinirEcuacionViewController: UIViewController {
         
         // verifica que sea una ecuacion valida ( no este llena de ceros)
         
-        if outletA.text == "0" && outletB.text == "0" && outletC.text == "0" && outletD.text == "0" {
+        if outletA.text == "-0" || outletB.text == "-0" || outletC.text == "-0" || outletD.text == "-0" {
             
             // TODO: Agregar alerta
             
             
+            //Alerta
+            let alerta = UIAlertController(title: "Error", message: "Campos con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
+            alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+            
+            presentViewController(alerta, animated: true, completion: nil)
+       
+        
+        
         }else {
             
             //
@@ -123,6 +131,8 @@ class DefinirEcuacionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.title = "Polinomio"
         
         let filePath: String = self.dataFilePath()
         

@@ -96,10 +96,34 @@ class ExamenTeorico: UIViewController {
             
         }else {
             
+            
+            //Alerta
+            let alerta = UIAlertController(title: "Alerta", message: "Has llegado al numero máximo de intentos, presiona OK para ver la respuesta correcta", preferredStyle: UIAlertControllerStyle.Alert)
+            alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+            
+            presentViewController(alerta, animated: true, completion: nil)
+
+            
             // Mostrar resultados correctos
-            outletMaximo.text = self.maximo
-            outletMinimo.text = self.minimo
-            outletPuntoInflexion.text = self.puntoInf
+            
+            if self.maximo == "" {
+                outletMaximo.text = "-"
+            }else{
+                outletMaximo.text = self.maximo
+            }
+            
+            if self.maximo == "" {
+                outletMinimo.text = "-"
+            }else{
+                outletMinimo.text = self.minimo
+            }
+            
+            
+            if self.maximo == "" {
+                outletMinimo.text = "-"
+            }else{
+                outletPuntoInflexion.text = self.puntoInf
+            }
             
             outletImgPuntoInflexion.hidden = true
             outletImgMaximo.hidden = true

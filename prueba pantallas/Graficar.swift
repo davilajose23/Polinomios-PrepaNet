@@ -87,12 +87,17 @@ class Graficar: UIViewController {
         if let maxi = poli.dblMaximo(){
             
             outletMaximo.text = String(format: "%.5f",maxi)
+        }else{
+            outletMaximo.text = "-"
         }
         
         if let min = poli.dblMinimo(){
             
             outletMinimo.text = String(format: "%.5f",min)
+        }else{
+            outletMinimo.text = "-"
         }
+        
         //outletMaximo.text = String (maxi) + "si"
         
         
@@ -111,11 +116,15 @@ class Graficar: UIViewController {
 
             
         }
-            
-        outletPuntoInflexion.text = puntosInf
         
+        if puntosInf == "" {
             
+            outletPuntoInflexion.text = "-"
             
+        }else{
+            outletPuntoInflexion.text = puntosInf
+            
+        }
         
 
         
