@@ -126,15 +126,38 @@ class Graficar: UIViewController {
             
         }
         
+        
+        
 
         
     }
+    
+    @IBAction func handlePanGesture(sender: UIPanGestureRecognizer) {
+        let translate :CGPoint = sender.translationInView(self.view)
+       
+        outletPlanoCartesiano.dblVerticalDisplace += Double(translate.y) / Double(outletPlanoCartesiano.frame.height) * (outletPlanoCartesiano.dblMaxY - outletPlanoCartesiano.dblMinY)
+        outletPlanoCartesiano.dblHorizontalDisplace -= Double(translate.x) / Double(outletPlanoCartesiano.frame.width) * (outletPlanoCartesiano.dblMaxX - outletPlanoCartesiano.dblMinX)
+        outletPlanoCartesiano.setNeedsDisplay()
+        
+        sender.setTranslation(CGPoint.zero, inView: self.view)
+            
+        
+        
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnCentrar(sender: AnyObject) {
+        outletPlanoCartesiano.dblHorizontalDisplace = 0
+        outletPlanoCartesiano.dblVerticalDisplace = 0
+        outletPlanoCartesiano.dblScaleFactor = 1
+        outletPlanoCartesiano.setNeedsDisplay()
+    }
     
     
 }

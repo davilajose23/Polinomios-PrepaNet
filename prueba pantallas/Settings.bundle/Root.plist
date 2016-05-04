@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Plano Cartesiano</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Color de gráfica</string>
+			<key>Key</key>
+			<string>settingsColorGrafica</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Titles</key>
+			<array>
+				<string>Aleatorio</string>
+				<string>Azul</string>
+				<string>Verde</string>
+				<string>Rojo</string>
+				<string>Naranja</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>aleatorio</string>
+				<string>azul</string>
+				<string>verde</string>
+				<string>rojo</string>
+				<string>naranja</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Color de grid</string>
+			<key>Key</key>
+			<string>settingsColorGrid</string>
+			<key>DefaultValue</key>
+			<string>blanco</string>
+			<key>Titles</key>
+			<array>
+				<string>Blanco</string>
+				<string>Gris</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>blanco</string>
+				<string>gris</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Examen Teórico</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Cantidad de intentos</string>
+			<key>Key</key>
+			<string>settingsIntentos</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Titles</key>
+			<array>
+				<string>1 intento</string>
+				<string>3 intentos</string>
+				<string>5 intentos</string>
+				<string>7 intentos</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>1</string>
+				<string>3</string>
+				<string>5</string>
+				<string>7</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

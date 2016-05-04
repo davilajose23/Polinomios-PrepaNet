@@ -16,6 +16,8 @@
 		5C3C819A1C912F1D006A214E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C81981C912F1D006A214E /* LaunchScreen.storyboard */; };
 		5CCE1DE41CD96D69005D9BFF /* Plano Cartesiano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1DE31CD96D69005D9BFF /* Plano Cartesiano.swift */; };
 		5CCE1DE61CD979D2005D9BFF /* ExamenTeorico.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE1DE51CD979D2005D9BFF /* ExamenTeorico.swift */; };
+		FB409CB11CDA68A8005D1B23 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB409CB01CDA68A8005D1B23 /* Settings.bundle */; };
+		FB409CB31CDA6D6D005D1B23 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB409CB21CDA6D6D005D1B23 /* SettingsViewController.swift */; };
 		FB9F8DC61CC55599006FA130 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB9F8DC51CC55599006FA130 /* Property List.plist */; };
 		FB9F8DC81CC555D6006FA130 /* DefinirEcuacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8DC71CC555D6006FA130 /* DefinirEcuacionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		5C3C819B1C912F1D006A214E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CCE1DE31CD96D69005D9BFF /* Plano Cartesiano.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plano Cartesiano.swift"; sourceTree = "<group>"; };
 		5CCE1DE51CD979D2005D9BFF /* ExamenTeorico.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamenTeorico.swift; sourceTree = "<group>"; };
+		FB409CB01CDA68A8005D1B23 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		FB409CB21CDA6D6D005D1B23 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FB9F8DC51CC55599006FA130 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		FB9F8DC71CC555D6006FA130 /* DefinirEcuacionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefinirEcuacionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +73,8 @@
 				5C3C818F1C912F1D006A214E /* AppDelegate.swift */,
 				5C3C81911C912F1D006A214E /* ViewController.swift */,
 				5C3C81931C912F1D006A214E /* Main.storyboard */,
+				FB409CB21CDA6D6D005D1B23 /* SettingsViewController.swift */,
+				FB409CB01CDA68A8005D1B23 /* Settings.bundle */,
 				5CCE1DE51CD979D2005D9BFF /* ExamenTeorico.swift */,
 				5CCE1DE31CD96D69005D9BFF /* Plano Cartesiano.swift */,
 				5C1F56501CC5B91B0005D5AA /* Graficar.swift */,
@@ -144,6 +150,7 @@
 			files = (
 				5C3C819A1C912F1D006A214E /* LaunchScreen.storyboard in Resources */,
 				5C3C81971C912F1D006A214E /* Assets.xcassets in Resources */,
+				FB409CB11CDA68A8005D1B23 /* Settings.bundle in Resources */,
 				5C3C81951C912F1D006A214E /* Main.storyboard in Resources */,
 				FB9F8DC61CC55599006FA130 /* Property List.plist in Resources */,
 			);
@@ -163,6 +170,7 @@
 				5C3C81921C912F1D006A214E /* ViewController.swift in Sources */,
 				5CCE1DE41CD96D69005D9BFF /* Plano Cartesiano.swift in Sources */,
 				5C3C81901C912F1D006A214E /* AppDelegate.swift in Sources */,
+				FB409CB31CDA6D6D005D1B23 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

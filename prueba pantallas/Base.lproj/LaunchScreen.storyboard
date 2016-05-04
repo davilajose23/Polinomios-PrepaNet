@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,20 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo2" translatesAutoresizingMaskIntoConstraints="NO" id="Je7-Wi-Ngu">
-                                <rect key="frame" x="-5" y="0.0" width="419" height="736"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo2" translatesAutoresizingMaskIntoConstraints="NO" id="Je7-Wi-Ngu">
+                                <rect key="frame" x="-10" y="0.0" width="434" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-pZ-j3w">
-                                <rect key="frame" x="84" y="167" width="263" height="259"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-pZ-j3w">
+                                <rect key="frame" x="70" y="160" width="274" height="274"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="G1E-pZ-j3w" secondAttribute="height" multiplier="1:1" id="1PV-Bu-LRS"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Graph Insight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bH-ZZ-WI8">
-                                <rect key="frame" x="84" y="444" width="271" height="79"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Insight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bH-ZZ-WI8">
+                                <rect key="frame" x="86" y="452" width="242" height="52"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="38"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G1E-pZ-j3w" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="83p-OZ-NMg"/>
+                            <constraint firstItem="1bH-ZZ-WI8" firstAttribute="top" secondItem="G1E-pZ-j3w" secondAttribute="bottom" constant="18" id="AiB-Bd-zKU"/>
+                            <constraint firstItem="G1E-pZ-j3w" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-71.5" id="G63-j8-n6v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G1E-pZ-j3w" secondAttribute="trailing" constant="50" id="Ip1-su-5Ks"/>
+                            <constraint firstItem="1bH-ZZ-WI8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JZQ-SY-E1L"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Je7-Wi-Ngu" secondAttribute="bottom" id="PaP-2z-YbW"/>
+                            <constraint firstItem="Je7-Wi-Ngu" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="d8M-VT-GDl"/>
+                            <constraint firstItem="Je7-Wi-Ngu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-30" id="mNy-vG-kra"/>
+                            <constraint firstItem="1bH-ZZ-WI8" firstAttribute="centerX" secondItem="G1E-pZ-j3w" secondAttribute="centerX" id="ndT-U8-QVu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Je7-Wi-Ngu" secondAttribute="trailing" constant="-30" id="rYh-jd-QLm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ndT-U8-QVu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>

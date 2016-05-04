@@ -1,12 +1,10 @@
 //
-//  Plano Cartesiano.swift
-//  prueba pantallas
+//  PlanoCartesiano.swift
+//  Plano
 //
-//  Created by Jose Fernando Dávila Orta on 18/04/16.
-//  Copyright © 2016 JoseFernandoDavila. All rights reserved.
+//  Created by alumno on 18/04/16.
+//  Copyright © 2016 JCGI. All rights reserved.
 //
-
-
 
 import UIKit
 
@@ -18,14 +16,18 @@ internal class PlanoCartesiano: UIView {
     var dblMinY : Double = -100
     var dblMaxY : Double = 100
     
+    var dblMinIntervalosVertical : Double = 4.0
+    var dblMaxIntervalosVertical : Double = 6.0
+    var dblMinIntervalosHorizontal : Double = 4.0
+    var dblMaxIntervalosHorizontal : Double = 6.0
+    
     var dblHorizontalDisplace : Double = 0
     var dblVerticalDisplace : Double = 0
     var dblScaleFactor : Double = 1
     
-    var colorRect = UIColor.blueColor()
-    
     private static let cgfLabelFontSize : CGFloat = CGFloat(8)
     private static let cgfLabelHeight : CGFloat = CGFloat(16)
+    private static let dblValores : [Double] = [1.0,2.0,2.5,3.0,4.0,5.0,6.0,7.0,8.0,9.0]
     
     var intAmountOfVerticalGrids = 8
     var intAmountOfHorizontalGrids = 8
@@ -33,6 +35,11 @@ internal class PlanoCartesiano: UIView {
     override func drawRect(rect: CGRect) {
         if (self.poli != nil)
         {
+            for view in self.subviews
+            {
+                view.removeFromSuperview()
+            }
+            
             self.setMaxMin()
             
             self.subDrawGrid()
@@ -57,9 +64,8 @@ internal class PlanoCartesiano: UIView {
             }
             
             let contexto = UIGraphicsGetCurrentContext()
-            //let color = UIColor.blueColor()
-            
-            CGContextSetStrokeColorWithColor(contexto, colorRect.CGColor)
+            let color = UIColor.blueColor()
+            CGContextSetStrokeColorWithColor(contexto, color.CGColor)
             CGContextSetLineWidth(contexto, 4.0)
             
             
@@ -97,6 +103,16 @@ internal class PlanoCartesiano: UIView {
                     self.dblMaxX = poli!.dblMaximo()! + dblDeltaX / 3
                     self.dblMinX = poli!.dblMinimo()! - dblDeltaX / 3
                 }
+            }
+            else if(poli!.intGrado() == 3)
+            {
+                let dblCentroX = poli!.arrdblPuntosInflexion()[0]
+                let dblCentroY = poli!.dblCalcular(poli!.arrdblPuntosInflexion()[0])
+                let dim = 10.0
+                self.dblMinX = dblCentroX - dim
+                self.dblMaxX = dblCentroX + dim
+                self.dblMinY = dblCentroY - dim
+                self.dblMaxY = dblCentroY + dim
             }
             else if(poli!.intGrado() == 1)
             {
@@ -158,64 +174,217 @@ internal class PlanoCartesiano: UIView {
         }
     }
     
-    private func subDrawGrid()
+    /*
+     private func subDrawGrid()
+     {
+     let contexto = UIGraphicsGetCurrentContext()
+     let color = UIColor.blackColor()
+     CGContextSetStrokeColorWithColor(contexto, CGColorCreateCopyWithAlpha( color.CGColor,CGFloat(0.5)))
+     CGContextSetLineWidth(contexto, 1)
+     
+     //  Draw vertical grids.
+     var dblDelta : Double = (Double(self.frame.width) / Double(self.intAmountOfVerticalGrids))
+     for i in 1...self.intAmountOfVerticalGrids - 1
+     {
+     CGContextMoveToPoint(contexto, CGFloat(Double(i) * dblDelta), 0)
+     CGContextAddLineToPoint(contexto, CGFloat(Double(i) * dblDelta), CGFloat(self.frame.height))
+     CGContextStrokePath(contexto)
+     
+     // Transport point in view to point in plane
+     let value = self.dblMinX + Double(i)/Double(self.intAmountOfVerticalGrids) * (self.dblMaxX - self.dblMinX)
+     
+     //  Place label
+     let s =  String(round(value * 100)/100.0)
+     let rect = CGRectMake(
+     CGFloat(Double(i) * dblDelta),
+     0,
+     CGFloat(dblDelta),
+     CGFloat(PlanoCartesiano.cgfLabelHeight)
+     )
+     let label = UILabel(frame: rect)
+     label.textAlignment = NSTextAlignment.Left
+     label.text = s
+     label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
+     self.addSubview(label)
+     }
+     
+     //  Draw horizontal grids.
+     dblDelta = (Double(self.frame.height) / Double(self.intAmountOfHorizontalGrids))
+     for i in 1...self.intAmountOfHorizontalGrids - 1
+     {
+     CGContextMoveToPoint(contexto, 0, CGFloat(Double(i) * dblDelta))
+     CGContextAddLineToPoint(contexto, self.frame.width, CGFloat(Double(i) * dblDelta))
+     CGContextStrokePath(contexto)
+     
+     // Transport point in view to point in plane
+     let value = self.dblMinY + (1-Double(i)/Double(self.intAmountOfHorizontalGrids)) * (self.dblMaxY - self.dblMinY)
+     
+     //  Place label
+     let s =  String(round(value * 100)/100.0)
+     let rect = CGRectMake(
+     CGFloat(-dblDelta / 2.0),
+     CGFloat((Double(i) + 0.4) * dblDelta),
+     CGFloat(dblDelta),
+     PlanoCartesiano.cgfLabelHeight
+     )
+     let label = UILabel(frame: rect)
+     label.textAlignment = NSTextAlignment.Right
+     label.text = s
+     label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
+     label.transform = CGAffineTransformRotate(label.transform, CGFloat(-M_PI_2))
+     self.addSubview(label)
+     }
+     
+     }
+     */
+    
+    func subDrawVerticalLine(contexto: CGContext, dblPointInPlane: Double, dblDelta: Double)
+    {
+        let value = ((dblPointInPlane - self.dblMinX) / (self.dblMaxX - self.dblMinX)) * Double(self.frame.width)
+        let dblDeltaAdjusted = (dblDelta / (self.dblMaxX - self.dblMinX)) * Double(self.frame.width)
+        
+        if (abs(dblPointInPlane) < 0.0000000001)
+        {
+            CGContextSetLineWidth(contexto, 3)
+        }
+        CGContextMoveToPoint(contexto, CGFloat(value), 0)
+        CGContextAddLineToPoint(contexto, CGFloat(value), CGFloat(self.frame.height))
+        CGContextStrokePath(contexto)
+        if (abs(dblPointInPlane) < 0.0000000001)
+        {
+            CGContextSetLineWidth(contexto, 1)
+        }
+        
+        //  Place label
+        let s =  String(round(dblPointInPlane * 100)/100.0)
+        let rect = CGRectMake(
+            CGFloat(value),
+            0,
+            CGFloat(dblDeltaAdjusted),
+            CGFloat(PlanoCartesiano.cgfLabelHeight)
+        )
+        let label = UILabel(frame: rect)
+        label.textAlignment = NSTextAlignment.Left
+        label.text = s
+        label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
+        self.addSubview(label)
+    }
+    
+    func subDrawHorizontalLine(contexto: CGContext, dblPointInPlane: Double, dblDelta: Double)
+    {
+        // Transport point in plane to point in view
+        let value = Double(self.frame.height) - (((dblPointInPlane - self.dblMinY) / (self.dblMaxY - self.dblMinY)) * Double(self.frame.height))
+        let dblDeltaAdjusted = (dblDelta / (self.dblMaxY - self.dblMinY)) * Double(self.frame.height)
+        
+        if (abs(dblPointInPlane) < 0.0000000001)
+        {
+            CGContextSetLineWidth(contexto, 3)
+        }
+        CGContextMoveToPoint(contexto, 0, CGFloat(value))
+        CGContextAddLineToPoint(contexto, self.frame.width, CGFloat(value))
+        CGContextStrokePath(contexto)
+        if (abs(dblPointInPlane) < 0.0000000001)
+        {
+            CGContextSetLineWidth(contexto, 1)
+        }
+        
+        //  Place label
+        let s =  String(dblPointInPlane)
+        let rect = CGRectMake(
+            CGFloat(-dblDeltaAdjusted / 2.0) + PlanoCartesiano.cgfLabelHeight / CGFloat(2.0),
+            CGFloat(value),
+            CGFloat(dblDeltaAdjusted),
+            PlanoCartesiano.cgfLabelHeight
+        )
+        let label = UILabel(frame: rect)
+        label.textAlignment = NSTextAlignment.Right
+        label.text = s
+        label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
+        label.transform = CGAffineTransformRotate(label.transform, CGFloat(-M_PI_2))
+        self.addSubview(label)
+    }
+    
+    func dblObtenerTamanoIntervalo(boolVertical : Bool) -> Double
+    {
+        var dblValoresAux = PlanoCartesiano.dblValores
+        
+        var dblTamanoTotal : Double = 0
+        var dblMaxIntervalos : Double = 0
+        var dblMinIntervalos :Double = 0
+        if (boolVertical)
+        {
+            dblTamanoTotal = self.dblMaxX - self.dblMinX
+            dblMaxIntervalos = self.dblMaxIntervalosVertical
+            dblMinIntervalos = self.dblMinIntervalosVertical
+            
+        }
+        else
+        {
+            dblTamanoTotal = self.dblMaxY - self.dblMinY
+            dblMaxIntervalos = self.dblMaxIntervalosHorizontal
+            dblMinIntervalos = self.dblMinIntervalosHorizontal
+        }
+        
+        if (dblTamanoTotal / dblValoresAux[0] < dblMinIntervalos)
+        {
+            let dblFactor : Double = 0.1
+            while (dblTamanoTotal / dblValoresAux[0] < dblMinIntervalos)
+            {
+                for i in 0...dblValoresAux.count - 1
+                {
+                    dblValoresAux[i] *= dblFactor
+                }
+            }
+        }
+        else
+        {
+            let dblFactor : Double = 10.0
+            while (dblTamanoTotal / dblValoresAux[dblValoresAux.count - 1] > dblMaxIntervalos)
+            {
+                for i in 0...dblValoresAux.count - 1
+                {
+                    dblValoresAux[i] *= dblFactor
+                }
+            }
+        }
+        
+        var dblTamanoIntervalo : Double = 1.0
+        for dblValor in dblValoresAux
+        {
+            dblTamanoIntervalo = dblValor
+            let dblCantActual : Double = dblTamanoTotal / dblTamanoIntervalo
+            if (dblCantActual >= dblMinIntervalos && dblCantActual <= dblMaxIntervalos)
+            {
+                break
+            }
+        }
+        
+        return dblTamanoIntervalo
+    }
+    
+    func subDrawGrid()
     {
         let contexto = UIGraphicsGetCurrentContext()
         let color = UIColor.blackColor()
         CGContextSetStrokeColorWithColor(contexto, CGColorCreateCopyWithAlpha( color.CGColor,CGFloat(0.5)))
         CGContextSetLineWidth(contexto, 1)
         
-        //  Draw vertical grids.
-        var dblDelta : Double = (Double(self.frame.width) / Double(self.intAmountOfVerticalGrids))
-        for i in 1...self.intAmountOfVerticalGrids - 1
+        //Pinto lineas verticales
+        let dblTamanoIntervaloVertical = self.dblObtenerTamanoIntervalo(true)
+        var dblLineaActual : Double = (floor(self.dblMinX / dblTamanoIntervaloVertical) + 1.0) * dblTamanoIntervaloVertical
+        while (dblLineaActual < self.dblMaxX)
         {
-            CGContextMoveToPoint(contexto, CGFloat(Double(i) * dblDelta), 0)
-            CGContextAddLineToPoint(contexto, CGFloat(Double(i) * dblDelta), CGFloat(self.frame.height))
-            CGContextStrokePath(contexto)
-            
-            // Transport point in view to point in plane
-            let value = self.dblMinX + Double(i)/Double(self.intAmountOfVerticalGrids) * (self.dblMaxX - self.dblMinX)
-            
-            //  Place label
-            let s =  String(round(value * 100)/100.0)
-            let rect = CGRectMake(
-                CGFloat(Double(i) * dblDelta),
-                0,
-                CGFloat(dblDelta),
-                CGFloat(PlanoCartesiano.cgfLabelHeight)
-            )
-            let label = UILabel(frame: rect)
-            label.textAlignment = NSTextAlignment.Left
-            label.text = s
-            label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
-            self.addSubview(label)
+            subDrawVerticalLine(contexto!, dblPointInPlane: dblLineaActual, dblDelta: dblTamanoIntervaloVertical)
+            dblLineaActual += dblTamanoIntervaloVertical
         }
         
-        //  Draw horizontal grids.
-        dblDelta = (Double(self.frame.height) / Double(self.intAmountOfHorizontalGrids))
-        for i in 1...self.intAmountOfHorizontalGrids - 1
+        //Pinto lineas horizontales
+        let dblTamanoIntervaloHorizontal = self.dblObtenerTamanoIntervalo(false)
+        dblLineaActual = (floor(self.dblMinY / dblTamanoIntervaloHorizontal) + 1.0) * dblTamanoIntervaloHorizontal
+        while (dblLineaActual < self.dblMaxY)
         {
-            CGContextMoveToPoint(contexto, 0, CGFloat(Double(i) * dblDelta))
-            CGContextAddLineToPoint(contexto, self.frame.width, CGFloat(Double(i) * dblDelta))
-            CGContextStrokePath(contexto)
-            
-            // Transport point in view to point in plane
-            let value = self.dblMinY + (1-Double(i)/Double(self.intAmountOfHorizontalGrids)) * (self.dblMaxY - self.dblMinY)
-            
-            //  Place label
-            let s =  String(round(value * 100)/100.0)
-            let rect = CGRectMake(
-                CGFloat(-dblDelta / 2.0),
-                CGFloat((Double(i) + 0.4) * dblDelta),
-                CGFloat(dblDelta),
-                PlanoCartesiano.cgfLabelHeight
-            )
-            let label = UILabel(frame: rect)
-            label.textAlignment = NSTextAlignment.Right
-            label.text = s
-            label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
-            label.transform = CGAffineTransformRotate(label.transform, CGFloat(-M_PI_2))
-            self.addSubview(label)
+            subDrawHorizontalLine(contexto!, dblPointInPlane: dblLineaActual, dblDelta: dblTamanoIntervaloHorizontal)
+            dblLineaActual += dblTamanoIntervaloHorizontal
         }
     }
 }
