@@ -22,6 +22,8 @@ internal class PlanoCartesiano: UIView {
     var dblVerticalDisplace : Double = 0
     var dblScaleFactor : Double = 1
     
+    var colorRect = UIColor.blueColor()
+    
     private static let cgfLabelFontSize : CGFloat = CGFloat(8)
     private static let cgfLabelHeight : CGFloat = CGFloat(16)
     
@@ -55,8 +57,9 @@ internal class PlanoCartesiano: UIView {
             }
             
             let contexto = UIGraphicsGetCurrentContext()
-            let color = UIColor.blueColor()
-            CGContextSetStrokeColorWithColor(contexto, color.CGColor)
+            //let color = UIColor.blueColor()
+            
+            CGContextSetStrokeColorWithColor(contexto, colorRect.CGColor)
             CGContextSetLineWidth(contexto, 4.0)
             
             

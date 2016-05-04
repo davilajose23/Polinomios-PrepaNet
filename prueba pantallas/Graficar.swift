@@ -103,7 +103,12 @@ class Graficar: UIViewController {
             
         for var i in infl {
                 
-            puntosInf += String(format: "%.3f ",i)
+            if i == 0 {
+                puntosInf += "0"
+            }else{
+                puntosInf += String(format: "%.5f ",i)
+            }
+
             
         }
             
