@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		5C1F564E1CC5B6510005D5AA /* Polinomio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polinomio.swift; sourceTree = "<group>"; };
 		5C1F56501CC5B91B0005D5AA /* Graficar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graficar.swift; sourceTree = "<group>"; };
-		5C3C818C1C912F1D006A214E /* prueba pantallas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prueba pantallas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C3C818C1C912F1D006A214E /* Graph Insight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Graph Insight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3C818F1C912F1D006A214E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C3C81911C912F1D006A214E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C3C81941C912F1D006A214E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		5C3C81831C912F1D006A214E = {
 			isa = PBXGroup;
 			children = (
-				5C3C818E1C912F1D006A214E /* prueba pantallas */,
+				5C3C818E1C912F1D006A214E /* Graph Insight */,
 				5C3C818D1C912F1D006A214E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,12 +58,12 @@
 		5C3C818D1C912F1D006A214E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C3C818C1C912F1D006A214E /* prueba pantallas.app */,
+				5C3C818C1C912F1D006A214E /* Graph Insight.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C3C818E1C912F1D006A214E /* prueba pantallas */ = {
+		5C3C818E1C912F1D006A214E /* Graph Insight */ = {
 			isa = PBXGroup;
 			children = (
 				5C3C818F1C912F1D006A214E /* AppDelegate.swift */,
@@ -79,15 +79,16 @@
 				5C3C81981C912F1D006A214E /* LaunchScreen.storyboard */,
 				5C3C819B1C912F1D006A214E /* Info.plist */,
 			);
+			name = "Graph Insight";
 			path = "prueba pantallas";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C3C818B1C912F1D006A214E /* prueba pantallas */ = {
+		5C3C818B1C912F1D006A214E /* Graph Insight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "prueba pantallas" */;
+			buildConfigurationList = 5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "Graph Insight" */;
 			buildPhases = (
 				5C3C81881C912F1D006A214E /* Sources */,
 				5C3C81891C912F1D006A214E /* Frameworks */,
@@ -97,9 +98,9 @@
 			);
 			dependencies = (
 			);
-			name = "prueba pantallas";
+			name = "Graph Insight";
 			productName = "prueba pantallas";
-			productReference = 5C3C818C1C912F1D006A214E /* prueba pantallas.app */;
+			productReference = 5C3C818C1C912F1D006A214E /* Graph Insight.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +119,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "prueba pantallas" */;
+			buildConfigurationList = 5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "Graph Insight" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -131,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C3C818B1C912F1D006A214E /* prueba pantallas */,
+				5C3C818B1C912F1D006A214E /* Graph Insight */,
 			);
 		};
 /* End PBXProject section */
@@ -273,11 +274,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "prueba pantallas/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.prueba-pantallas";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.Graph-Insight";
+				PRODUCT_NAME = "Graph Insight";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -286,18 +290,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "prueba pantallas/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.prueba-pantallas";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.Graph-Insight";
+				PRODUCT_NAME = "Graph Insight";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "prueba pantallas" */ = {
+		5C3C81871C912F1D006A214E /* Build configuration list for PBXProject "Graph Insight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C3C819C1C912F1D006A214E /* Debug */,
@@ -306,7 +313,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "prueba pantallas" */ = {
+		5C3C819E1C912F1D006A214E /* Build configuration list for PBXNativeTarget "Graph Insight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C3C819F1C912F1D006A214E /* Debug */,

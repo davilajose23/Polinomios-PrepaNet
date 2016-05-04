@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="piO-9h-tDX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="piO-9h-tDX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -154,7 +154,7 @@
         <!--Examen teórico-->
         <scene sceneID="M1T-H1-EUO">
             <objects>
-                <viewController title="Examen teórico" id="jQT-R6-pTv" customClass="ExamenTeorico" customModule="prueba_pantallas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Examen teórico" id="jQT-R6-pTv" customClass="ExamenTeorico" customModule="Graph_Insight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kqT-S2-ntt"/>
                         <viewControllerLayoutGuide type="bottom" id="13J-aS-OFY"/>
@@ -423,7 +423,7 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
         <!--Graficar-->
         <scene sceneID="Hfk-Od-jkH">
             <objects>
-                <viewController title="Graficar" id="g7g-SU-rIr" customClass="Graficar" customModule="prueba_pantallas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Graficar" id="g7g-SU-rIr" customClass="Graficar" customModule="Graph_Insight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9BM-sF-BkJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Ido-w4-Xc9"/>
@@ -462,7 +462,7 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-V9-5yf" customClass="PlanoCartesiano" customModule="prueba_pantallas" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-V9-5yf" customClass="PlanoCartesiano" customModule="Graph_Insight" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="414" height="355"/>
                                 <color key="backgroundColor" red="0.83916266025641029" green="0.83916266025641029" blue="0.83916266025641029" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -490,7 +490,7 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
         <!--Definir ecuación-->
         <scene sceneID="GZL-Xc-up2">
             <objects>
-                <viewController title="Definir ecuación" id="zUs-fm-C7x" customClass="DefinirEcuacionViewController" customModule="prueba_pantallas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Definir ecuación" id="zUs-fm-C7x" customClass="DefinirEcuacionViewController" customModule="Graph_Insight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rwg-Bv-cy2"/>
                         <viewControllerLayoutGuide type="bottom" id="tbN-nj-d0K"/>
