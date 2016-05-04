@@ -269,12 +269,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eAQ-16-ny9">
-                                <rect key="frame" x="21" y="153" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5t0-pv-JJG">
                                 <rect key="frame" x="121" y="153" width="41" height="30"/>
                                 <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -323,8 +317,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eAQ-16-ny9">
+                                <rect key="frame" x="21" y="153" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4so-we-FdV" appends="YES" id="G9H-fN-ilK"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -342,6 +346,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQ4-XL-Trx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4so-we-FdV">
+                    <connections>
+                        <action selector="quitaTeclado:" destination="jQT-R6-pTv" id="L5v-Bz-NTy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1957" y="-399"/>
         </scene>
@@ -371,10 +380,15 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Hnc-w2-uoY" appends="YES" id="c05-y2-k4x"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgU-LF-s2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Hnc-w2-uoY"/>
             </objects>
             <point key="canvasLocation" x="1873" y="1418"/>
         </scene>
@@ -462,16 +476,16 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-V9-5yf" customClass="PlanoCartesiano" customModule="Graph_Insight" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="414" height="355"/>
-                                <color key="backgroundColor" red="0.83916266025641029" green="0.83916266025641029" blue="0.83916266025641029" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mínimo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM3-V3-F9X">
                                 <rect key="frame" x="105" y="494" width="68" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-V9-5yf" customClass="PlanoCartesiano" customModule="Graph_Insight" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="414" height="355"/>
+                                <color key="backgroundColor" red="0.83916266025641029" green="0.83916266025641029" blue="0.83916266025641029" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -610,6 +624,10 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uTA-jI-R6U" appends="YES" id="CWs-Rs-kj9"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -620,6 +638,11 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hY-tl-vHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uTA-jI-R6U">
+                    <connections>
+                        <action selector="quitaTeclado:" destination="zUs-fm-C7x" id="KGX-dG-pEo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2514" y="-344"/>
         </scene>

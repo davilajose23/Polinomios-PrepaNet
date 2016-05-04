@@ -177,6 +177,10 @@ class DefinirEcuacionViewController: UIViewController {
 
     
     
+    @IBAction func quitaTeclado(sender: UITapGestureRecognizer) {
+        
+        self.view.endEditing(true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
