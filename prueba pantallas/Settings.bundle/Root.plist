@@ -20,7 +20,7 @@
 			<key>Key</key>
 			<string>settingsColorGrafica</string>
 			<key>DefaultValue</key>
-			<string>0</string>
+			<integer>0</integer>
 			<key>Titles</key>
 			<array>
 				<string>Aleatorio</string>
@@ -72,7 +72,7 @@
 			<key>Key</key>
 			<string>settingsIntentos</string>
 			<key>DefaultValue</key>
-			<string>0</string>
+			<integer>0</integer>
 			<key>Titles</key>
 			<array>
 				<string>1 intento</string>
@@ -82,10 +82,10 @@
 			</array>
 			<key>Values</key>
 			<array>
-				<string>1</string>
-				<string>3</string>
-				<string>5</string>
-				<string>7</string>
+				<integer>1</integer>
+				<integer>3</integer>
+				<integer>5</integer>
+				<integer>7</integer>
 			</array>
 		</dict>
 	</array>
