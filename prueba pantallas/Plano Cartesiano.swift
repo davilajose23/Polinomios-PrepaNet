@@ -27,10 +27,7 @@ internal class PlanoCartesiano: UIView {
     
     private static let cgfLabelFontSize : CGFloat = CGFloat(8)
     private static let cgfLabelHeight : CGFloat = CGFloat(16)
-    private static let dblValores : [Double] = [1.0,2.0,2.5,3.0,4.0,5.0,6.0,7.0,8.0,9.0]
-    
-    var intAmountOfVerticalGrids = 8
-    var intAmountOfHorizontalGrids = 8
+    private static let dblValores : [Double] = [1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5]
     
     override func drawRect(rect: CGRect) {
         if (self.poli != nil)
@@ -157,6 +154,17 @@ internal class PlanoCartesiano: UIView {
                 }
                 
                 let dim = 10.0
+                self.dblMinX = dblCentroX - dim / self.poli!.dblB / 1.5
+                self.dblMaxX = dblCentroX + dim / self.poli!.dblB / 1.5
+                self.dblMinY = dblCentroY - dim
+                self.dblMaxY = dblCentroY + dim
+            }
+            else if(poli!.intGrado() == 0)
+            {
+                let dblCentroX = 0.0
+                let dblCentroY = poli!.dblD
+                
+                let dim = 10.0
                 self.dblMinX = dblCentroX - dim
                 self.dblMaxX = dblCentroX + dim
                 self.dblMinY = dblCentroY - dim
@@ -173,70 +181,6 @@ internal class PlanoCartesiano: UIView {
             self.dblMinY += self.dblVerticalDisplace - dblVerticalDelta
         }
     }
-    
-    /*
-     private func subDrawGrid()
-     {
-     let contexto = UIGraphicsGetCurrentContext()
-     let color = UIColor.blackColor()
-     CGContextSetStrokeColorWithColor(contexto, CGColorCreateCopyWithAlpha( color.CGColor,CGFloat(0.5)))
-     CGContextSetLineWidth(contexto, 1)
-     
-     //  Draw vertical grids.
-     var dblDelta : Double = (Double(self.frame.width) / Double(self.intAmountOfVerticalGrids))
-     for i in 1...self.intAmountOfVerticalGrids - 1
-     {
-     CGContextMoveToPoint(contexto, CGFloat(Double(i) * dblDelta), 0)
-     CGContextAddLineToPoint(contexto, CGFloat(Double(i) * dblDelta), CGFloat(self.frame.height))
-     CGContextStrokePath(contexto)
-     
-     // Transport point in view to point in plane
-     let value = self.dblMinX + Double(i)/Double(self.intAmountOfVerticalGrids) * (self.dblMaxX - self.dblMinX)
-     
-     //  Place label
-     let s =  String(round(value * 100)/100.0)
-     let rect = CGRectMake(
-     CGFloat(Double(i) * dblDelta),
-     0,
-     CGFloat(dblDelta),
-     CGFloat(PlanoCartesiano.cgfLabelHeight)
-     )
-     let label = UILabel(frame: rect)
-     label.textAlignment = NSTextAlignment.Left
-     label.text = s
-     label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
-     self.addSubview(label)
-     }
-     
-     //  Draw horizontal grids.
-     dblDelta = (Double(self.frame.height) / Double(self.intAmountOfHorizontalGrids))
-     for i in 1...self.intAmountOfHorizontalGrids - 1
-     {
-     CGContextMoveToPoint(contexto, 0, CGFloat(Double(i) * dblDelta))
-     CGContextAddLineToPoint(contexto, self.frame.width, CGFloat(Double(i) * dblDelta))
-     CGContextStrokePath(contexto)
-     
-     // Transport point in view to point in plane
-     let value = self.dblMinY + (1-Double(i)/Double(self.intAmountOfHorizontalGrids)) * (self.dblMaxY - self.dblMinY)
-     
-     //  Place label
-     let s =  String(round(value * 100)/100.0)
-     let rect = CGRectMake(
-     CGFloat(-dblDelta / 2.0),
-     CGFloat((Double(i) + 0.4) * dblDelta),
-     CGFloat(dblDelta),
-     PlanoCartesiano.cgfLabelHeight
-     )
-     let label = UILabel(frame: rect)
-     label.textAlignment = NSTextAlignment.Right
-     label.text = s
-     label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
-     label.transform = CGAffineTransformRotate(label.transform, CGFloat(-M_PI_2))
-     self.addSubview(label)
-     }
-     
-     }
-     */
     
     func subDrawVerticalLine(contexto: CGContext, dblPointInPlane: Double, dblDelta: Double)
     {
@@ -291,16 +235,15 @@ internal class PlanoCartesiano: UIView {
         //  Place label
         let s =  String(dblPointInPlane)
         let rect = CGRectMake(
-            CGFloat(-dblDeltaAdjusted / 2.0) + PlanoCartesiano.cgfLabelHeight / CGFloat(2.0),
+            0,
             CGFloat(value),
             CGFloat(dblDeltaAdjusted),
             PlanoCartesiano.cgfLabelHeight
         )
         let label = UILabel(frame: rect)
-        label.textAlignment = NSTextAlignment.Right
+        label.textAlignment = NSTextAlignment.Left
         label.text = s
         label.font = label.font.fontWithSize(PlanoCartesiano.cgfLabelFontSize)
-        label.transform = CGAffineTransformRotate(label.transform, CGFloat(-M_PI_2))
         self.addSubview(label)
     }
     

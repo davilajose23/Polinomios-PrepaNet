@@ -147,6 +147,15 @@ class Graficar: UIViewController {
     }
     
     
+    @IBAction func handlePinchGesture(sender: UIPinchGestureRecognizer) {
+        
+        let factor: CGFloat = sender.scale
+        
+        outletPlanoCartesiano.dblScaleFactor *= Double(factor)
+        sender.scale = 1
+        outletPlanoCartesiano.setNeedsDisplay()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

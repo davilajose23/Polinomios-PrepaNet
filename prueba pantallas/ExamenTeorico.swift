@@ -49,13 +49,20 @@ class ExamenTeorico: UIViewController {
         outletMinimo.text = ""
         outletPuntoInflexion.text = ""
         
+        outletImgMaximo.hidden = true
+        outletImgMinimo.hidden = true
+        outletImgPuntoInflexion.hidden = true
+        
     }
     
     @IBAction func clickCalificar(sender: AnyObject) {
         
-        
-        
-        if intentos < 5{
+        if Double(outletMaximo.text!) == nil && outletMaximo.text != ""   ||  Double(outletMinimo.text!) == nil && outletMinimo.text != ""  || Double(outletPuntoInflexion.text!) == nil  && outletPuntoInflexion.text != "" {
+            
+            alertaSimbolo()
+            
+            
+        }else if intentos < 5{
             
             outletImgPuntoInflexion.hidden = false
             outletImgMaximo.hidden = false
@@ -63,6 +70,8 @@ class ExamenTeorico: UIViewController {
             
             //Verificar si esta bien Máximo
             var strRespuestaMaximo : String = ""
+            
+                
             if (outletMaximo.text != "")
             {
                 strRespuestaMaximo = String(format: "%.2f", Double(outletMaximo.text!)!)
@@ -119,20 +128,20 @@ class ExamenTeorico: UIViewController {
             // Mostrar resultados correctos
             
             if self.maximo == "" {
-                outletMaximo.text = "-"
+                outletMaximo.text = ""
             }else{
                 outletMaximo.text = self.maximo
             }
             
-            if self.maximo == "" {
-                outletMinimo.text = "-"
+            if self.minimo == "" {
+                outletMinimo.text = ""
             }else{
                 outletMinimo.text = self.minimo
             }
             
             
-            if self.maximo == "" {
-                outletMinimo.text = "-"
+            if self.puntoInf == "" {
+                outletPuntoInflexion.text = ""
             }else{
                 outletPuntoInflexion.text = self.puntoInf
             }
@@ -169,25 +178,6 @@ class ExamenTeorico: UIViewController {
         
         cargaDatos()
         
-        if poli.dblMaximo() != nil{
-            
-            self.maximo = String(format: "%.2f", poli.dblMaximo()!)
-        }
-        if poli.dblMinimo() != nil {
-            
-            self.minimo = String(format: "%.2f", poli.dblMinimo()! )
-        }
-        
-        if poli.arrdblPuntosInflexion().count != 0 {
-            
-            self.puntoInf =  String(format: "%.2f",poli.arrdblPuntosInflexion()[0])
-        }
-        
-        outletImgPuntoInflexion.hidden = true
-        outletImgMaximo.hidden = true
-        outletImgMinimo.hidden = true
-        
-        outletIntentos.text = "\(intentos) de 5 Intentos"
         
     }
     
@@ -224,11 +214,40 @@ class ExamenTeorico: UIViewController {
             outletD.text = "0"
             
         }
+        
+        if poli.dblMaximo() != nil{
+            
+            self.maximo = String(format: "%.2f", poli.dblMaximo()!)
+        }
+        if poli.dblMinimo() != nil {
+            
+            self.minimo = String(format: "%.2f", poli.dblMinimo()! )
+        }
+        
+        if poli.arrdblPuntosInflexion().count != 0 {
+            
+            self.puntoInf =  String(format: "%.2f",poli.arrdblPuntosInflexion()[0])
+        }
+        
+        outletImgPuntoInflexion.hidden = true
+        outletImgMaximo.hidden = true
+        outletImgMinimo.hidden = true
+        
+        outletIntentos.text = "\(intentos) de 5 Intentos"
 
         
     }
     
-    
+    func alertaSimbolo(){
+        
+        
+        let alerta = UIAlertController(title: "Error", message: "Campos con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
+        alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        presentViewController(alerta, animated: true, completion: nil)
+        
+        
+    }
     
     override func viewWillAppear(animated: Bool) {
         

@@ -19,7 +19,6 @@ class DefinirEcuacionViewController: UIViewController {
     @IBOutlet weak var outletB: UITextField!
     @IBOutlet weak var outletA: UITextField!
     
-    @IBOutlet weak var outletLabelEcuacion: UILabel!
    
     
     
@@ -77,10 +76,7 @@ class DefinirEcuacionViewController: UIViewController {
             
             
             //Alerta
-            let alerta = UIAlertController(title: "Error", message: "Campos con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
-            alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-            
-            presentViewController(alerta, animated: true, completion: nil)
+            alertaSimbolo()
        
         
         
@@ -89,12 +85,20 @@ class DefinirEcuacionViewController: UIViewController {
             //
             if outletA.text == ""{
                 array.addObject("0")
-            }else {
+                
+            }else if Double(outletA.text!) == nil {
+                alertaSimbolo()
+                
+            }else
+            {
                 array.addObject(outletA.text!)
             }
             
             if outletB.text == ""{
                 array.addObject("0")
+            }else if Double(outletB.text!) == nil {
+                alertaSimbolo()
+                
             }else{
                 array.addObject(outletB.text!)
             }
@@ -102,28 +106,30 @@ class DefinirEcuacionViewController: UIViewController {
             
             if outletC.text == ""{
                 array.addObject("0")
+            }else if Double(outletC.text!) == nil {
+                alertaSimbolo()
+                
             }else {
                 array.addObject(outletC.text!)
             }
             
+            
             if outletD.text == ""{
                 array.addObject("0")
+            }else if Double(outletD.text!) == nil {
+                alertaSimbolo()
+                
             }else{
                 array.addObject(outletD.text!)
             }
             
             // guarda el archivo
-            array.writeToFile(dataFilePath(), atomically: true)
-            
-            
-            // regresa a la vista anterior
-            if let navController = self.navigationController {
-                navController.popViewControllerAnimated(true)
+            if (array.count == 4)
+            {
+                array.writeToFile(dataFilePath(), atomically: true)
+                self.navigationController?.popToRootViewControllerAnimated(true)
             }
-            
         }
-        
-        
     }
     
     
@@ -176,7 +182,18 @@ class DefinirEcuacionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    func alertaSimbolo(){
+        
+            
+            let alerta = UIAlertController(title: "Error", message: "Campos con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
+            alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+            
+            presentViewController(alerta, animated: true, completion: nil)
+            
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -170,18 +170,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IwF-4Z-YIg">
-                                <rect key="frame" x="169" y="169" width="80" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUL-ss-mxm">
-                                <rect key="frame" x="169" y="217" width="80" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punto de Inflexión:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raz-SK-xHh">
                                 <rect key="frame" x="21" y="268" width="143" height="24"/>
                                 <constraints>
@@ -191,12 +179,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LN-TO-IDp">
-                                <rect key="frame" x="169" y="265" width="80" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2R-qs-6KO">
                                 <rect key="frame" x="254" y="165" width="45" height="38"/>
                                 <constraints>
@@ -340,6 +322,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mínimo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NT-WR-tXr">
+                                <rect key="frame" x="21" y="220" width="143" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29d-XM-DrQ">
                                 <rect key="frame" x="16" y="505" width="144" height="33"/>
                                 <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -351,12 +339,30 @@
                                     <action selector="clickCalificar:" destination="jQT-R6-pTv" eventType="touchUpInside" id="8wL-04-Oy1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mínimo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NT-WR-tXr">
-                                <rect key="frame" x="21" y="220" width="143" height="24"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="*Numeros redondeados a dos decimales **Si el polinomio no cuenta con algun valor, dejar el campo en blanco" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="1un-yH-heZ">
+                                <rect key="frame" x="21" y="304" width="278" height="196"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IwF-4Z-YIg">
+                                <rect key="frame" x="168" y="169" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUL-ss-mxm">
+                                <rect key="frame" x="168" y="217" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LN-TO-IDp">
+                                <rect key="frame" x="168" y="265" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -370,6 +376,7 @@
                             <constraint firstItem="lp1-hu-K8f" firstAttribute="centerY" secondItem="eAQ-16-ny9" secondAttribute="centerY" id="55R-T6-YoJ"/>
                             <constraint firstItem="5t0-pv-JJG" firstAttribute="centerY" secondItem="eAQ-16-ny9" secondAttribute="centerY" id="5As-T0-eB9"/>
                             <constraint firstItem="x0d-Jx-iCK" firstAttribute="centerX" secondItem="lp1-hu-K8f" secondAttribute="centerX" constant="9" id="5Eh-3I-E0R"/>
+                            <constraint firstItem="1un-yH-heZ" firstAttribute="leading" secondItem="jo4-rI-iNI" secondAttribute="leadingMargin" constant="5" id="62C-71-o1u"/>
                             <constraint firstItem="DM1-2F-YXF" firstAttribute="centerY" secondItem="eAQ-16-ny9" secondAttribute="centerY" id="6ok-cY-H3g"/>
                             <constraint firstItem="0LN-TO-IDp" firstAttribute="centerY" secondItem="Raz-SK-xHh" secondAttribute="centerY" id="9fn-fH-mJg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l2R-qs-6KO" secondAttribute="trailing" constant="5" id="9hI-at-DaQ"/>
@@ -402,6 +409,7 @@
                             <constraint firstItem="MWX-dr-wPA" firstAttribute="centerX" secondItem="jo4-rI-iNI" secondAttribute="centerX" constant="-22.5" id="VTb-YF-Cae"/>
                             <constraint firstItem="l2R-qs-6KO" firstAttribute="top" secondItem="Ej3-5v-ZaQ" secondAttribute="bottom" constant="10" id="VaF-nP-okq"/>
                             <constraint firstItem="fq5-9W-h57" firstAttribute="height" secondItem="VQT-Og-aoh" secondAttribute="height" id="X39-U7-sUs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1un-yH-heZ" secondAttribute="trailing" constant="5" id="XOb-2w-dvA"/>
                             <constraint firstItem="Raz-SK-xHh" firstAttribute="width" secondItem="5Qx-29-cfY" secondAttribute="width" id="XgG-wV-v9z"/>
                             <constraint firstItem="vfI-aZ-vFq" firstAttribute="centerX" secondItem="jo4-rI-iNI" secondAttribute="centerX" constant="-8.5" id="Xjw-qq-rA8"/>
                             <constraint firstItem="BUE-GR-wJW" firstAttribute="centerX" secondItem="jo4-rI-iNI" secondAttribute="centerX" constant="67.5" id="YDl-dZ-zAL"/>
@@ -417,8 +425,10 @@
                             <constraint firstItem="CZx-XL-tVM" firstAttribute="leading" secondItem="0LN-TO-IDp" secondAttribute="trailing" constant="5" id="fF5-X7-1kf"/>
                             <constraint firstItem="eAQ-16-ny9" firstAttribute="top" secondItem="VQT-Og-aoh" secondAttribute="bottom" constant="23" id="gfj-x7-eqB"/>
                             <constraint firstItem="CLi-Hq-lfR" firstAttribute="baseline" secondItem="MWX-dr-wPA" secondAttribute="baseline" constant="-10" id="ghE-Ul-QbW"/>
+                            <constraint firstItem="1un-yH-heZ" firstAttribute="top" secondItem="CZx-XL-tVM" secondAttribute="bottom" constant="5" id="hHq-hM-qFI"/>
                             <constraint firstItem="vfI-aZ-vFq" firstAttribute="centerX" secondItem="MWX-dr-wPA" secondAttribute="centerX" constant="14" id="j9a-jC-fEj"/>
                             <constraint firstItem="fq5-9W-h57" firstAttribute="top" secondItem="kqT-S2-ntt" secondAttribute="bottom" constant="5" id="jc9-4t-qhD"/>
+                            <constraint firstItem="29d-XM-DrQ" firstAttribute="top" secondItem="1un-yH-heZ" secondAttribute="bottom" constant="5" id="jg9-Yc-9sW"/>
                             <constraint firstItem="5t0-pv-JJG" firstAttribute="centerX" secondItem="jo4-rI-iNI" secondAttribute="centerX" constant="-51.5" id="jjm-6g-AKk"/>
                             <constraint firstItem="eAQ-16-ny9" firstAttribute="centerX" secondItem="jo4-rI-iNI" secondAttribute="centerX" constant="-124.5" id="jxv-Fu-lO9"/>
                             <constraint firstItem="x0d-Jx-iCK" firstAttribute="centerX" secondItem="jo4-rI-iNI" secondAttribute="centerX" constant="-84.5" id="kDW-oQ-hqg"/>
@@ -679,7 +689,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wvv-kG-9ao">
                                 <rect key="frame" x="20" y="171" width="374" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Graph Insight a sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2016, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
+                                <string key="text">Graph Insight ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2016, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
 
 Desarrolladores:
 José Fernando Dávila Orta
@@ -756,6 +766,7 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                                 <color key="backgroundColor" red="0.83916266025641029" green="0.83916266025641029" blue="0.83916266025641029" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="z7A-dN-Bfw" appends="YES" id="ExQ-rS-lX9"/>
+                                    <outletCollection property="gestureRecognizers" destination="XEg-eK-bK7" appends="YES" id="QCK-1k-2pu"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mínimo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM3-V3-F9X">
@@ -780,6 +791,7 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Oyu-ia-5OK" firstAttribute="centerY" secondItem="RM3-V3-F9X" secondAttribute="centerY" id="0H9-90-fOe"/>
                             <constraint firstItem="GtS-V9-5yf" firstAttribute="leading" secondItem="sS9-re-b1U" secondAttribute="leadingMargin" constant="5" id="2hI-f6-4GX"/>
@@ -824,6 +836,11 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                         <action selector="handlePanGesture:" destination="g7g-SU-rIr" id="8P9-u3-nQK"/>
                     </connections>
                 </panGestureRecognizer>
+                <pinchGestureRecognizer id="XEg-eK-bK7">
+                    <connections>
+                        <action selector="handlePinchGesture:" destination="g7g-SU-rIr" id="7aq-r0-51t"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2948" y="197"/>
         </scene>
@@ -869,29 +886,11 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HwC-AL-laA">
-                                <rect key="frame" x="15" y="180" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elh-Na-d3O">
-                                <rect key="frame" x="90" y="180" width="41" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFq-1M-Ucw">
-                                <rect key="frame" x="162" y="180" width="48" height="30"/>
-                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-6c-zKq">
                                 <rect key="frame" x="234" y="180" width="42" height="30"/>
                                 <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t8-Sy-dSZ">
                                 <rect key="frame" x="77" y="185" width="11" height="21"/>
@@ -957,6 +956,24 @@ Graph Insight se distribuye como está de manera gratuita y se prohíbe su distr
                                     <action selector="clickGuardar:" destination="zUs-fm-C7x" eventType="touchUpInside" id="WWN-44-OAY"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFq-1M-Ucw">
+                                <rect key="frame" x="162" y="180" width="48" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HwC-AL-laA">
+                                <rect key="frame" x="16" y="180" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elh-Na-d3O">
+                                <rect key="frame" x="91" y="180" width="41" height="30"/>
+                                <color key="backgroundColor" red="0.95514823719999997" green="0.95514823719999997" blue="0.95514823719999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>

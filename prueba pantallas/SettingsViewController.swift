@@ -38,8 +38,11 @@ class SettingsViewController: UIViewController {
         
         if outletSwitch.on {
             
+            outletColores.hidden = true
+            
             
         }else{
+            outletColores.hidden = false
             
             
         }
@@ -53,12 +56,12 @@ class SettingsViewController: UIViewController {
         
         let colorGrafica = String(defaults.valueForKey("settingsColorGrafica"))
         
-        if colorGrafica == "0" {
+        if Int(colorGrafica) == 0 {
             outletSwitch.on = true
             
         }else {
             outletSwitch.on = false
-            outletColores.selectedSegmentIndex = 0
+            //outletColores.selectedSegmentIndex = Int(colorGrafica)!-1
             
         }
         
