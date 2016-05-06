@@ -1,5 +1,5 @@
- **Graph Insight**   AKA (Poliniomios PrepaNet)
-iOS based App developed in **Swift**, designed for [PrepaNet](http://sitios.itesm.mx/prepanet/) students. 
+#Graph Insight
+Graph Insight   AKA (Poliniomios PrepaNet) iOS based App developed in **Swift**, designed for [PrepaNet](http://sitios.itesm.mx/prepanet/) students. 
 Its main functions include: 
 * Plotting up to 3rd grade equations
 * Determining its maximum, minimum values and inflection points
@@ -8,7 +8,7 @@ Its main functions include:
 
 Graph insight has been developed by **Tecnológico de Monterrey** students, during Jan-May 2016 semester, as a Mobile Application Development project. This project was supervised and mentored by **Yolanda Martínez Treviño**.
 
-Developers:
+###Developers:
 * **José Fernando Dávila Orta**
 * **Juan Carlos Guzmán Islas**
 * **Rafael Manriquez Valdez** 
