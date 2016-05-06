@@ -10,18 +10,18 @@ import UIKit
 
 class Graficar: UIViewController {
 
-    let kFilename = "/data.plist"
     
     
+    //outlets
     @IBOutlet weak var outletMaximo: UITextField!
-    
     @IBOutlet weak var outletMinimo: UITextField!
-    
     @IBOutlet weak var outletPuntoInflexion: UITextField!
-    
-    
     @IBOutlet weak var outletPlanoCartesiano: PlanoCartesiano!
     
+    //nombre del archivo
+    let kFilename = "/data.plist"
+    
+    //funcion para obtener la path del archivo
     func dataFilePath() -> String {
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -47,43 +47,31 @@ class Graficar: UIViewController {
         
         if NSFileManager.defaultManager().fileExistsAtPath(filePath){
             
+            //crea un arreglo mutable desde el archivo
             let array = NSMutableArray(contentsOfFile: filePath)
-            //outletA.text = array![0] as? String
             
-           
-        
-            
+            //variables locales con los datos del arreglo como Double
             let A = Double((array![0] as? String)!)!
             let B = Double((array![1] as? String)!)!
             let C = Double((array![2] as? String)!)!
             let D = Double((array![3] as? String)!)!
-
             
-            
-            
+            //define una variable polinomio de la clase Polinomio con los datos del arreglo
             poli = Polinomio(dblA: A , dblB: B, dblC: C, dblD: D)
             
             
+        }else{ //en caso de no encontrar el archivo plist
             
-            
-        }else{
-            /*
-            outletA.text = "0"
-            outletB.text = "0"
-            outletC.text = "1"
-            outletD.text = "0" */
-            
+            //define polinomio con valores por default
             poli = Polinomio(dblA: 0, dblB: 0, dblC: 1, dblD: 0)
         }
         
-        // dibuja la grafica
-        
+        // relaciona el polinomio a la grafica y la dibuja
         outletPlanoCartesiano.poli = poli
-        
         outletPlanoCartesiano.setNeedsDisplay()
         
         
-        
+        //Verifica que exista un maximo y lo despliega
         if let maxi = poli.dblMaximo(){
             
             outletMaximo.text = String(format: "%.5f",maxi)
@@ -91,6 +79,7 @@ class Graficar: UIViewController {
             outletMaximo.text = "-"
         }
         
+        //Verifica que exista un minimo y lo despliega
         if let min = poli.dblMinimo(){
             
             outletMinimo.text = String(format: "%.5f",min)
@@ -98,15 +87,13 @@ class Graficar: UIViewController {
             outletMinimo.text = "-"
         }
         
-        //outletMaximo.text = String (maxi) + "si"
         
-        
-        
+        // obtiene los puntos de inflexion
         let infl = poli.arrdblPuntosInflexion()
             
         var puntosInf = ""
             
-        for var i in infl {
+        for  i in infl {
                 
             if i == 0 {
                 puntosInf += "0"
@@ -114,9 +101,9 @@ class Graficar: UIViewController {
                 puntosInf += String(format: "%.5f ",i)
             }
 
-            
         }
         
+        //verifica si hay puntos de inflexion y los muestra
         if puntosInf == "" {
             
             outletPuntoInflexion.text = "-"
@@ -126,33 +113,35 @@ class Graficar: UIViewController {
             
         }
         
-        
-        
-
-        
     }
     
+    
+    //funcion para poder hacer scroll en la grafica
     @IBAction func handlePanGesture(sender: UIPanGestureRecognizer) {
+        
         let translate :CGPoint = sender.translationInView(self.view)
        
+        //obtiene el traslado en X y Y
         outletPlanoCartesiano.dblVerticalDisplace += Double(translate.y) / Double(outletPlanoCartesiano.frame.height) * (outletPlanoCartesiano.dblMaxY - outletPlanoCartesiano.dblMinY)
+        
         outletPlanoCartesiano.dblHorizontalDisplace -= Double(translate.x) / Double(outletPlanoCartesiano.frame.width) * (outletPlanoCartesiano.dblMaxX - outletPlanoCartesiano.dblMinX)
+        
+        //vuelve a dibujar la grafica
         outletPlanoCartesiano.setNeedsDisplay()
-        
         sender.setTranslation(CGPoint.zero, inView: self.view)
-            
-        
-        
         
     }
     
-    
+    //funcion para hacer zoom
     @IBAction func handlePinchGesture(sender: UIPinchGestureRecognizer) {
         
+        //obtiene el factor de escala
         let factor: CGFloat = sender.scale
         
+        //modifica el valor de escala en el plano cartesiano
         outletPlanoCartesiano.dblScaleFactor *= Double(factor)
         sender.scale = 1
+        //vuelve a dibujar la grafica
         outletPlanoCartesiano.setNeedsDisplay()
     }
     
@@ -161,12 +150,16 @@ class Graficar: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Funcion para centrar la grafica como en un inicio
     @IBAction func btnCentrar(sender: AnyObject) {
+        
+        //reestablece los valores por defecto
         outletPlanoCartesiano.dblHorizontalDisplace = 0
         outletPlanoCartesiano.dblVerticalDisplace = 0
         outletPlanoCartesiano.dblScaleFactor = 1
+        
+        //vuelve a dibujar la grafica
         outletPlanoCartesiano.setNeedsDisplay()
     }
-    
     
 }

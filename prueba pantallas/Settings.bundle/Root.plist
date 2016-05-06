@@ -18,7 +18,7 @@
 			<key>Title</key>
 			<string>Color de gráfica</string>
 			<key>Key</key>
-			<string>settingsColorGrafica</string>
+			<string>colorGrafica</string>
 			<key>DefaultValue</key>
 			<integer>0</integer>
 			<key>Titles</key>
@@ -44,7 +44,7 @@
 			<key>Title</key>
 			<string>Color de grid</string>
 			<key>Key</key>
-			<string>settingsColorGrid</string>
+			<string>colorGrid</string>
 			<key>DefaultValue</key>
 			<string>blanco</string>
 			<key>Titles</key>
@@ -70,9 +70,9 @@
 			<key>Title</key>
 			<string>Cantidad de intentos</string>
 			<key>Key</key>
-			<string>settingsIntentos</string>
+			<string>intentos</string>
 			<key>DefaultValue</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>Titles</key>
 			<array>
 				<string>1 intento</string>

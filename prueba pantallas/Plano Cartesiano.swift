@@ -11,27 +11,39 @@ import UIKit
 internal class PlanoCartesiano: UIView {
     
     var poli : Polinomio?
+    
+    //														//	Bounds of the plane. Note that this does not represent
+    //														//		the width or height of the actual view, but the
+    //														//		values that the plane will contain.
     var dblMinX : Double = -10
     var dblMaxX : Double = 10
     var dblMinY : Double = -100
     var dblMaxY : Double = 100
     
+    //														//	Amount of intervals desired in the plane. This affects
+    //														//		how the grid will be drawn.
     var dblMinIntervalosVertical : Double = 4.0
     var dblMaxIntervalosVertical : Double = 6.0
     var dblMinIntervalosHorizontal : Double = 4.0
     var dblMaxIntervalosHorizontal : Double = 6.0
     
+    //														//	Variables altering the positioning and size of the plane
     var dblHorizontalDisplace : Double = 0
     var dblVerticalDisplace : Double = 0
     var dblScaleFactor : Double = 1
     
+    //														//	Useful contants.
     private static let cgfLabelFontSize : CGFloat = CGFloat(8)
     private static let cgfLabelHeight : CGFloat = CGFloat(16)
+    
+    //														//	Values that the intervals should be factors of.
     private static let dblValores : [Double] = [1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5]
     
+    //														//	Standard function to draw the view's content.
     override func drawRect(rect: CGRect) {
         if (self.poli != nil)
         {
+            //												//	Remove all the labels that were previously added.
             for view in self.subviews
             {
                 view.removeFromSuperview()
@@ -79,6 +91,10 @@ internal class PlanoCartesiano: UIView {
         }
     }
     
+    //														//	Function that sets the maximum and minimum values for X
+    //														//		and Y. Note that these values are not the ones in
+    //														//		the view itself, but the ones that are represented
+    //														//		on the plane.
     private func setMaxMin()
     {
         if (poli != nil)
@@ -182,6 +198,8 @@ internal class PlanoCartesiano: UIView {
         }
     }
     
+    //														//	Draws a vertical line in the context chosen, and in the
+    //														//		point that represents a certain value on the plane.
     func subDrawVerticalLine(contexto: CGContext, dblPointInPlane: Double, dblDelta: Double)
     {
         let value = ((dblPointInPlane - self.dblMinX) / (self.dblMaxX - self.dblMinX)) * Double(self.frame.width)
@@ -214,6 +232,8 @@ internal class PlanoCartesiano: UIView {
         self.addSubview(label)
     }
     
+    //														//	Draws a horizontal line in the context chosen, and
+    //														//	in a point that represents a certain value on the plane.
     func subDrawHorizontalLine(contexto: CGContext, dblPointInPlane: Double, dblDelta: Double)
     {
         // Transport point in plane to point in view
@@ -247,6 +267,9 @@ internal class PlanoCartesiano: UIView {
         self.addSubview(label)
     }
     
+    //														//	Function that obtains the best size of interval between
+    //														//		lines in the plane, taking into account all the values
+    //														//		defined in static properties.
     func dblObtenerTamanoIntervalo(boolVertical : Bool) -> Double
     {
         var dblValoresAux = PlanoCartesiano.dblValores
@@ -305,6 +328,7 @@ internal class PlanoCartesiano: UIView {
         return dblTamanoIntervalo
     }
     
+    //														//	Method in charge of drawing the grid on the plane.
     func subDrawGrid()
     {
         let contexto = UIGraphicsGetCurrentContext()
