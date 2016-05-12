@@ -87,6 +87,7 @@ class DefinirEcuacionViewController: UIViewController {
             }else if Double(outletA.text!) == nil {
                 //si algun valor es nulo (con simbolo) manda alerta
                 alertaSimbolo()
+                outletA.text = ""
                 
             }else{
                 //agrega el valor al arreglo
@@ -99,6 +100,7 @@ class DefinirEcuacionViewController: UIViewController {
             }else if Double(outletB.text!) == nil {
                 //si algun valor es nulo (con simbolo) manda alerta
                 alertaSimbolo()
+                outletB.text = ""
                 
             }else{
                 //agrega el valor al arreglo
@@ -111,6 +113,7 @@ class DefinirEcuacionViewController: UIViewController {
             }else if Double(outletC.text!) == nil {
                 //si algun valor es nulo (con simbolo) manda alerta
                 alertaSimbolo()
+                outletC.text = ""
                 
             }else {
                 //agrega el valor al arreglo
@@ -124,6 +127,7 @@ class DefinirEcuacionViewController: UIViewController {
             }else if Double(outletD.text!) == nil {
                 //si algun valor es nulo (con simbolo) manda alerta
                 alertaSimbolo()
+                outletD.text = ""
                 
             }else{
                 //agrega el valor al arreglo
@@ -200,7 +204,7 @@ class DefinirEcuacionViewController: UIViewController {
     func alertaSimbolo(){
         
             
-            let alerta = UIAlertController(title: "Error", message: "Campos con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
+            let alerta = UIAlertController(title: "Error", message: "Espacio con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
             alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
             
             presentViewController(alerta, animated: true, completion: nil)

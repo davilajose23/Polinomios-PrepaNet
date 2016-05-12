@@ -257,7 +257,7 @@ class ExamenTeorico: UIViewController {
     func alertaSimbolo(){
         
         
-        let alerta = UIAlertController(title: "Error", message: "Campos con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
+        let alerta = UIAlertController(title: "Error", message: "Espacio con valores invalidos", preferredStyle: UIAlertControllerStyle.Alert)
         alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
         
         presentViewController(alerta, animated: true, completion: nil)

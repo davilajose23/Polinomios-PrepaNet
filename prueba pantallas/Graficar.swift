@@ -139,7 +139,8 @@ class Graficar: UIViewController {
         let factor: CGFloat = sender.scale
         
         //modifica el valor de escala en el plano cartesiano
-        outletPlanoCartesiano.dblScaleFactor *= Double(factor)
+        outletPlanoCartesiano.dblScaleFactor /= Double(factor)
+        
         sender.scale = 1
         //vuelve a dibujar la grafica
         outletPlanoCartesiano.setNeedsDisplay()
