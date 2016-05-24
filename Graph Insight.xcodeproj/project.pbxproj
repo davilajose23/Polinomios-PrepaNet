@@ -286,7 +286,7 @@
 				INFOPLIST_FILE = "prueba pantallas/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.Graph-Insight";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.Graph-Insight";
 				PRODUCT_NAME = "Graph Insight";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,7 +302,7 @@
 				INFOPLIST_FILE = "prueba pantallas/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "davila.jose23.Graph-Insight";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.Graph-Insight";
 				PRODUCT_NAME = "Graph Insight";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
